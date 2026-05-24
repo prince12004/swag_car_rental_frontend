@@ -388,12 +388,6 @@ export function CarsManagement() {
                                     </button>
                                 </div>
                             )}
-                            <input
-                                className={inputCls + ' text-xs'}
-                                placeholder="Or paste image URL directly"
-                                value={formData.image}
-                                onChange={set('image')}
-                            />
                         </div>
                         {/* Description */}
                         <div>

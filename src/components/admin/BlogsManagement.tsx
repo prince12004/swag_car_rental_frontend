@@ -375,12 +375,6 @@ export function BlogsManagement() {
                                                 </button>
                                             </div>
                                         )}
-                                        <Input
-                                            placeholder="Or paste image URL directly"
-                                            value={formData.image}
-                                            onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                                            className="bg-slate-700 border-white/10 text-white placeholder:text-slate-500 text-xs"
-                                        />
                                     </div>
 
                                     <Textarea

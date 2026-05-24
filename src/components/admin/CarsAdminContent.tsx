@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
-import { Plus, Trash2, Edit2, Eye, EyeOff, Car, X, Check, Loader2, AlertCircle } from "lucide-react";
+import { useRef, useState } from "react";
+import { Plus, Trash2, Edit2, Eye, EyeOff, Car, X, Check, Loader2, AlertCircle, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -30,6 +30,31 @@ export default function CarsAdminContent() {
     const [formData, setFormData] = useState(emptyForm);
     const [saving, setSaving] = useState(false);
     const [formError, setFormError] = useState('');
+    const [uploadingImage, setUploadingImage] = useState(false);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        setUploadingImage(true);
+        try {
+            const token = localStorage.getItem('adminToken');
+            const fd = new FormData();
+            fd.append('image', file);
+            const res = await fetch(`${BACKEND_URL}/api/upload`, {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${token}` },
+                body: fd,
+            });
+            if (!res.ok) throw new Error('Upload failed');
+            const { url } = await res.json();
+            setFormData(f => ({ ...f, image: url }));
+        } catch (err: any) {
+            toast.error(err.message || 'Image upload failed');
+        } finally {
+            setUploadingImage(false);
+        }
+    };
 
     const { data: cars = [], isLoading } = useQuery({
         queryKey: ["admin-cars"],
@@ -300,12 +325,36 @@ export default function CarsAdminContent() {
                             </div>
                         </div>
 
-                        {/* Image URL */}
-                        <div>
-                            <label className="block text-xs text-slate-400 mb-1">Image URL (optional)</label>
-                            <input className={inputCls} placeholder="https://... or leave blank for default" value={formData.image} onChange={set('image')} />
+                        {/* Image Upload */}
+                        <div className="space-y-2">
+                            <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Car Image</p>
+                            <label className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl border-2 border-dashed cursor-pointer transition-all select-none ${uploadingImage ? 'opacity-60 cursor-not-allowed border-slate-600' : 'border-slate-600 hover:border-blue-500/60 hover:bg-blue-500/5'} bg-slate-800/60`}>
+                                <input
+                                    ref={fileInputRef}
+                                    type="file"
+                                    accept="image/*"
+                                    className="hidden"
+                                    disabled={uploadingImage}
+                                    onChange={handleImageUpload}
+                                />
+                                {uploadingImage
+                                    ? <Loader2 className="h-5 w-5 text-blue-400 animate-spin shrink-0" />
+                                    : <Upload className="h-5 w-5 text-blue-400 shrink-0" />
+                                }
+                                <div>
+                                    <p className="text-sm font-semibold text-slate-200">
+                                        {uploadingImage ? 'Uploading image…' : 'Choose car image'}
+                                    </p>
+                                    <p className="text-xs text-slate-500">PNG, JPG, WEBP — max 5 MB</p>
+                                </div>
+                            </label>
                             {formData.image && (
-                                <img src={formData.image} alt="preview" className="mt-2 h-24 w-40 object-cover rounded-lg border border-slate-600" onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                                <div className="relative rounded-xl overflow-hidden border border-slate-600">
+                                    <img src={formData.image} alt="Car preview" className="w-full h-44 object-cover" onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                                    <button type="button" onClick={() => setFormData(f => ({ ...f, image: '' }))} className="absolute top-2 right-2 h-7 w-7 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition-colors">
+                                        <X className="h-3.5 w-3.5 text-white" />
+                                    </button>
+                                </div>
                             )}
                         </div>
 
