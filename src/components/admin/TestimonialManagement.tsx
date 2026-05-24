@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { AlertCircle, Edit2, Trash2, Plus, Check, Star } from 'lucide-react';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 interface Testimonial {
     _id?: string;
@@ -358,8 +358,8 @@ export function TestimonialManagement() {
                                                 <Star
                                                     key={star}
                                                     className={`h-3 w-3 ${star <= testimonial.rating
-                                                            ? 'fill-orange-glow text-orange-glow'
-                                                            : 'text-muted'
+                                                        ? 'fill-orange-glow text-orange-glow'
+                                                        : 'text-muted'
                                                         }`}
                                                 />
                                             ))}
@@ -375,8 +375,8 @@ export function TestimonialManagement() {
                                             </span>
                                             <span
                                                 className={`text-xs px-2 py-1 rounded-full ${testimonial.is_published
-                                                        ? 'bg-orange-glow/20 text-orange-glow'
-                                                        : 'bg-muted text-muted-foreground'
+                                                    ? 'bg-orange-glow/20 text-orange-glow'
+                                                    : 'bg-muted text-muted-foreground'
                                                     }`}
                                             >
                                                 {testimonial.is_published ? 'Published' : 'Draft'}

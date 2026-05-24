@@ -6,7 +6,7 @@ import { PublicLayout } from "@/components/layout/PublicLayout";
 import { CarCard } from "@/components/cars/CarCard";
 import heroImg from "@/assets/hero-car.jpg";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 export const Route = createFileRoute("/")({
   head: () => ({

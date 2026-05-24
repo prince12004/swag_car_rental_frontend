@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Loader2, Star, Award } from "lucide-react";
 import { PublicLayout } from "@/components/layout/PublicLayout";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 interface Testimonial {
     _id: string;

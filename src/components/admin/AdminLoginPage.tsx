@@ -3,7 +3,7 @@ import { useNavigate } from '@tanstack/react-router';
 import { Loader2, AlertCircle, Lock, Mail } from 'lucide-react';
 import { toast } from 'sonner';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 export default function AdminLoginPage() {
     const navigate = useNavigate();

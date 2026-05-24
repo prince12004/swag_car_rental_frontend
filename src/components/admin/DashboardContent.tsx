@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Car, FileText, Calendar, Mail, TrendingUp, AlertCircle, BarChart3 } from "lucide-react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 export default function DashboardContent() {
     const { data: stats, isLoading } = useQuery({

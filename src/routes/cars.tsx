@@ -6,7 +6,7 @@ import { z } from "zod";
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { CarCard } from "@/components/cars/CarCard";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 const searchSchema = z.object({
   category: z.string().optional(),

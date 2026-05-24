@@ -5,7 +5,7 @@ import { PublicLayout } from "@/components/layout/PublicLayout";
 import { formatDate } from "@/lib/format";
 import heroImg from "@/assets/hero-car.jpg";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => ({
@@ -63,7 +63,7 @@ function BlogDetailsPage() {
             <div className="h-10 w-4/5 bg-muted rounded" />
             <div className="h-4 w-48 bg-muted rounded" />
             <div className="space-y-3 pt-6">
-              {[1,2,3,4].map(i => <div key={i} className="h-4 bg-muted rounded" style={{ width: `${85 + (i % 3) * 5}%` }} />)}
+              {[1, 2, 3, 4].map(i => <div key={i} className="h-4 bg-muted rounded" style={{ width: `${85 + (i % 3) * 5}%` }} />)}
             </div>
           </div>
         </div>

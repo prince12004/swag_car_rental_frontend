@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Send, Loader2, Instagram, Twitter, Facebook, Youtu
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { toast } from "sonner";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

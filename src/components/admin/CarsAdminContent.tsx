@@ -4,7 +4,7 @@ import { Plus, Trash2, Edit2, Eye, EyeOff, Car, X, Check, Loader2, AlertCircle, 
 import { toast } from "sonner";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5005';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 const emptyForm = {
     name: '',
