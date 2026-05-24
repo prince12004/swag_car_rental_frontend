@@ -98,14 +98,17 @@ export function BookingForm({
       </div>
 
       <Field label="Pickup Location">
-        <input
-          type="text"
+        <select
           required
           value={form.location}
-          onChange={set("location")}
-          placeholder="City or address for pickup"
+          onChange={(e) => setForm((f) => ({ ...f, location: e.target.value }))}
           className={INPUT_CLS}
-        />
+        >
+          <option value="">Select pickup location</option>
+          <option value="Office Delhi">Office Delhi</option>
+          <option value="Noida">Noida</option>
+          <option value="Gurgaon">Gurgaon</option>
+        </select>
       </Field>
 
       <div className="grid sm:grid-cols-2 gap-4">

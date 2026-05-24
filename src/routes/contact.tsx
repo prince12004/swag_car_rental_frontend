@@ -42,10 +42,10 @@ function ContactPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          fullName: parsed.data.full_name,
+          name: parsed.data.full_name,
           email: parsed.data.email,
-          phone: parsed.data.phone || null,
-          subject: parsed.data.subject || null,
+          phone: parsed.data.phone || '',
+          subject: parsed.data.subject || 'General Inquiry',
           message: parsed.data.message,
         }),
       });

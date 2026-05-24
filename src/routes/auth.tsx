@@ -103,13 +103,13 @@ function AuthPage() {
             </button>
           </form>
 
-          <div className="mt-6 p-4 bg-secondary/10 rounded-lg border border-secondary/20">
+          {/* <div className="mt-6 p-4 bg-secondary/10 rounded-lg border border-secondary/20">
             <p className="text-xs text-muted-foreground">
               <strong>Demo Credentials:</strong><br />
               Email: admin@swagwheels.com<br />
               Password: admin123456
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

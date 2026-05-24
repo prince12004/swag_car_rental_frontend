@@ -103,9 +103,14 @@ function SearchPanel() {
   const [location, setLocation] = useState("");
   const navigate = useNavigate();
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate({ to: "/cars", search: category ? { category } : undefined });
+    const params: Record<string, string> = {};
+    if (category) params.category = category;
+    if (searchQuery) params.q = searchQuery;
+    navigate({ to: "/cars", search: Object.keys(params).length ? params : undefined });
   };
 
   return (
@@ -123,23 +128,36 @@ function SearchPanel() {
         </div>
 
         <PanelField icon={MapPin} label="Pickup Location">
-          <input
-            type="text"
+          <select
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            placeholder="City or airport"
             className="panel-input"
-          />
+          >
+            <option value="">Select location</option>
+            <option value="Office Delhi">Office Delhi</option>
+            <option value="Noida">Noida</option>
+            <option value="Gurgaon">Gurgaon</option>
+          </select>
         </PanelField>
 
         <div className="grid grid-cols-2 gap-3">
           <PanelField icon={Calendar} label="Pickup">
-            <input type="date" value={pickupDate} onChange={(e) => setPickupDate(e.target.value)} className="panel-input" />
+            <input type="date" value={pickupDate} min={new Date().toISOString().split("T")[0]} onChange={(e) => setPickupDate(e.target.value)} className="panel-input" />
           </PanelField>
           <PanelField icon={Calendar} label="Return">
-            <input type="date" value={returnDate} onChange={(e) => setReturnDate(e.target.value)} className="panel-input" />
+            <input type="date" value={returnDate} min={pickupDate || new Date().toISOString().split("T")[0]} onChange={(e) => setReturnDate(e.target.value)} className="panel-input" />
           </PanelField>
         </div>
+
+        <PanelField icon={Search} label="Search Car">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="e.g. BMW, Fortuner..."
+            className="panel-input"
+          />
+        </PanelField>
 
         <PanelField icon={CarIcon} label="Category">
           <select value={category} onChange={(e) => setCategory(e.target.value)} className="panel-input">
