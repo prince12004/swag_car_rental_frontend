@@ -4,7 +4,7 @@ import whatsapp from "../../assets/whatsapp.png";
 export function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/++919289084361?text=Hi%20SWAG CAR RENTAL %2C%20I'd%20like%20to%20book%20a%20car"
+      href="https://wa.me/919289084361?text=Hi%20SWAG%20CAR%20RENTAL%2C%20I'd%20like%20to%20book%20a%20car"
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"

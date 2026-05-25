@@ -68,7 +68,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+15557924227" className="flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors">
+            <a href="https://wa.me/919289084361?text=Hi%20SWAG%20CAR%20RENTAL%2C%20I'd%20like%20to%20book%20a%20car" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors">
               <Phone className="h-4 w-4 text-primary" />
               <span className="font-display font-bold tracking-wider">+91 9289084361</span>
             </a>

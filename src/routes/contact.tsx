@@ -80,7 +80,7 @@ function ContactPage() {
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-8">
             {/* Info */}
             <div className="space-y-4">
-              <ContactCard Icon={Phone} title="Call us" value="+91 9289084361" href="tel:++919289084361" />
+              <ContactCard Icon={Phone} title="WhatsApp us" value="+91 9289084361" href="https://wa.me/919289084361?text=Hi%20SWAG%20CAR%20RENTAL%2C%20I'd%20like%20to%20book%20a%20car" />
               <ContactCard Icon={Mail} title="Email" value="info@swagrental.com" href="mailto:info@swagrental.com" />
               <ContactCard Icon={MapPin} title="Visit" value="1 Neon Drive, Los Angeles, CA 90012" />
 

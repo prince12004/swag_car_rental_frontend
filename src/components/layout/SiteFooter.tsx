@@ -69,7 +69,7 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Phone className="h-4 w-4 mt-0.5 text-primary" />
-              <span>+91 9289084361</span>
+              <a href="https://wa.me/919289084361?text=Hi%20SWAG%20CAR%20RENTAL%2C%20I'd%20like%20to%20book%20a%20car" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">+91 9289084361</a>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="h-4 w-4 mt-0.5 text-primary" />

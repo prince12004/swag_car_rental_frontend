@@ -186,8 +186,8 @@ function CarDetailsPage() {
                   <button onClick={share} className="btn-ghost-neon">
                     <Share2 className="h-4 w-4" /> Share
                   </button>
-                  <a href="tel:++919289084361" className="btn-ghost-neon">
-                    <Phone className="h-4 w-4" /> Call: +91 9289084361
+                  <a href="https://wa.me/919289084361?text=Hi%20SWAG%20CAR%20RENTAL%2C%20I'd%20like%20to%20book%20a%20car" target="_blank" rel="noreferrer" className="btn-ghost-neon">
+                    <Phone className="h-4 w-4" /> WhatsApp: +91 9289084361
                   </a>
                 </div>
               </div>
