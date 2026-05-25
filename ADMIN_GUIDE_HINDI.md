@@ -16,7 +16,7 @@ Password: Admin@123456
 ## 📞 Contact Number (सबको दीजिए)
 
 ```
-+91 88278 14985
++91 9289084361
 ```
 
 ---
@@ -24,12 +24,14 @@ Password: Admin@123456
 ## 🚗 Admin Panel में क्या-क्या कर सकते हो?
 
 ### 1. **Dashboard (शुरुआत)**
+
 - कुल कितनी cars हैं
 - कितने bookings pending हैं
 - कितने queries आई हैं
 - कितना revenue हुआ
 
 ### 2. **Cars Management** 🚗
+
 - ✅ नई car add करो
 - ✅ Car की details edit करो
 - ✅ Car को hide/show करो (दिखाना है या नहीं)
@@ -37,6 +39,7 @@ Password: Admin@123456
 - ✅ Car को delete करो
 
 **Car में देना पड़ता है:**
+
 - Car का नाम (जैसे BMW M5)
 - Price per day (रोज की कीमत)
 - Category (luxury/sports/suv/sedan/budget)
@@ -44,6 +47,7 @@ Password: Admin@123456
 - Details (seats, fuel type, automatic/manual)
 
 ### 3. **Blogs Management** 📝
+
 - ✅ नया blog post लिखो
 - ✅ Blog को edit करो
 - ✅ Blog को publish करो (दिखाना है)
@@ -51,6 +55,7 @@ Password: Admin@123456
 - ✅ Blog को delete करो
 
 ### 4. **Bookings Management** 📅
+
 - ✅ सभी bookings देखो
 - ✅ Booking का status change करो:
   - pending → confirmed → completed
@@ -58,12 +63,14 @@ Password: Admin@123456
 - ✅ Booking delete करो
 
 ### 5. **Contact Queries** 💬
+
 - ✅ जो लोग contact form भरते हैं, उनके सभी queries यहाँ आएँगी
 - ✅ "Message on WhatsApp" button दबाओ
 - ✅ सीधा WhatsApp खुल जाता है customer के साथ बात करने के लिए
 - ✅ कोई API नहीं, सीधा messaging
 
 ### 6. **FAQs** ❓
+
 - ✅ سوالات और جوابات add करो
 - ✅ FAQ को publish/unpublish करो
 - ✅ FAQ को delete करो
@@ -74,6 +81,7 @@ Password: Admin@123456
 ## 🗄️ MongoDB में डाटा
 
 ### Database Connection
+
 ```
 mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mongodb.net/swag_wheels_db
 ```
@@ -81,6 +89,7 @@ mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mo
 ### Collections (डाटा रखने की जगह)
 
 #### **cars** - सभी cars
+
 ```javascript
 {
   title: "BMW M5",
@@ -97,6 +106,7 @@ mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mo
 ```
 
 #### **blogs** - सभी blog posts
+
 ```javascript
 {
   title: "Car Rental Tips",
@@ -107,6 +117,7 @@ mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mo
 ```
 
 #### **bookings** - सभी customers की bookings
+
 ```javascript
 {
   customerName: "Raj",
@@ -119,6 +130,7 @@ mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mo
 ```
 
 #### **contact_queries** - Contact form से आने वाली queries
+
 ```javascript
 {
   name: "Priya",
@@ -130,6 +142,7 @@ mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mo
 ```
 
 #### **faqs** - सवाल जवाब
+
 ```javascript
 {
   question: "कम से कम कितनी उम्र होनी चाहिए?",
@@ -183,8 +196,9 @@ GET    http://localhost:5005/api/faqs
    - कोई API charge नहीं
 
 ### Contact Number
+
 ```
-+91 88278 14985
++91 9289084361
 ```
 
 ---
@@ -192,6 +206,7 @@ GET    http://localhost:5005/api/faqs
 ## 🚀 शुरुआत कैसे करें?
 
 ### Step 1: Backend चलाओ
+
 ```bash
 cd backend
 npm install
@@ -199,23 +214,27 @@ npm run dev
 ```
 
 ### Step 2: Frontend चलाओ (नया terminal खोलो)
+
 ```bash
 npm install
 npm run dev
 ```
 
 ### Step 3: URLs खोलो
+
 - Frontend: http://localhost:5173
 - Admin Panel: http://localhost:5173/admin
 - API: http://localhost:5005
 
 ### Step 4: Login करो
+
 ```
 Email: admin@swag.com
 Password: Admin@123456
 ```
 
 ### Step 5: अपना data add करो
+
 - 5-10 cars add करो
 - 2-3 blogs लिखो
 - 5-6 FAQs add करो
@@ -225,11 +244,13 @@ Password: Admin@123456
 ## ✨ क्या-क्या बदल दिया?
 
 ### ❌ हटाया गया:
+
 - ❌ Supabase हटा दिया (खर्चीला था)
 - ❌ WhatsApp API हटा दी (महंगी थी)
 - ❌ WhatsApp booking automation हटा दी
 
 ### ✅ जोड़ा गया:
+
 - ✅ MongoDB लगाया (सस्ता और अच्छा)
 - ✅ WhatsApp direct messaging (फ्री!)
 - ✅ Full admin panel बनाया
@@ -241,9 +262,11 @@ Password: Admin@123456
 ## 🎛️ Admin Panel Features
 
 ### Dashboard Tab
+
 - Stats देखो (कुल cars, bookings, queries)
 
 ### Cars Tab
+
 - ➕ नई car add करो
 - ✏️ Car edit करो
 - 👁️ Hide/Show करो
@@ -251,22 +274,26 @@ Password: Admin@123456
 - 🗑️ Delete करो
 
 ### Blogs Tab
+
 - ➕ नया blog लिखो
 - ✏️ Edit करो
 - 📰 Publish/Unpublish करो
 - 🗑️ Delete करो
 
 ### Bookings Tab
+
 - 📋 सभी bookings देखो
 - 📊 Status update करो
 - 🗑️ Delete करो
 
 ### Queries Tab
+
 - 💬 Contact queries देखो
 - 💚 WhatsApp पर reply करो
 - ✅ Mark as read करो
 
 ### FAQs Tab
+
 - ❓ FAQ add करो
 - ✏️ Edit करो
 - 📰 Publish/Unpublish करो
@@ -276,10 +303,11 @@ Password: Admin@123456
 ## 📞 Support
 
 **कोई problem हो तो:**
+
 - Browser cache clear करो
 - Backend चल रहा है या नहीं देखो
 - MongoDB connect है या नहीं
-- Contact: +91 88278 14985
+- Contact: +91 9289084361
 
 ---
 
@@ -296,6 +324,7 @@ Password: Admin@123456
 ## 📝 Sample Data Add करने का तरीका
 
 ### Car add करो
+
 1. Admin panel खोलो
 2. "Cars" tab पर जाओ
 3. "+ Add Car" button दबाओ
@@ -311,12 +340,14 @@ Password: Admin@123456
 6. अब website पर दिखेगा!
 
 ### Car को hide करो
+
 1. Cars list में देखो
 2. Car के आगे eye 👁️ icon दबाओ
 3. Car website से गायब हो जाएगी
 4. फिर से दबाओ तो फिर से दिख जाएगी
 
 ### Blog publish करो
+
 1. Blogs tab खोलो
 2. "+ Add Blog" दबाओ
 3. Title, content, category लिखो

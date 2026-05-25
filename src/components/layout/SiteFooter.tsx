@@ -27,10 +27,10 @@ export function SiteFooter() {
           </p>
           <div className="flex gap-3 mt-5">
             {[
-              { Icon: Instagram, href: "https://instagram.com/swagrental" },
-              { Icon: Twitter, href: "https://twitter.com/swagrental" },
-              { Icon: Facebook, href: "https://facebook.com/swagrental" },
-              { Icon: Youtube, href: "https://youtube.com/@swagrental" },
+              { Icon: Instagram, href: "https://www.instagram.com/swag.carrental?igsh=dXJ6Znp4ZjV3dGIy" },
+              // { Icon: Twitter, href: "https://twitter.com/swagrental" },
+              { Icon: Facebook, href: "https://www.facebook.com/people/Aakash-Singh/pfbid0255SujFdo2UCvervrnSd5r6spwxzausevE6dMwmyqUFBQDvByhd8UELQFfPMfXLBRl/?rdid=onHgpZaTF8RkvbYG&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18EoZtdRCH%2F" },
+              // { Icon: Youtube, href: "https://youtube.com/@swagrental" },
             ].map(({ Icon, href }, i) => (
               <a
                 key={i}
@@ -69,7 +69,7 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Phone className="h-4 w-4 mt-0.5 text-primary" />
-              <span>+91 88278 14985</span>
+              <span>+91 9289084361</span>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="h-4 w-4 mt-0.5 text-primary" />

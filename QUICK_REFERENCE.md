@@ -3,6 +3,7 @@
 ## 🚀 Quick Commands
 
 ### Setup
+
 ```bash
 # Run everything automatically
 bash setup.sh
@@ -13,11 +14,12 @@ npm install
 ```
 
 ### Start Development
+
 ```bash
 # Terminal 1: Backend
 cd backend && npm run dev
 
-# Terminal 2: Frontend  
+# Terminal 2: Frontend
 npm run dev
 
 # Or use quick start script
@@ -25,6 +27,7 @@ bash start.sh
 ```
 
 ### Build for Production
+
 ```bash
 # Backend
 cd backend && npm run build
@@ -38,11 +41,13 @@ npm run build
 ## 🔐 Authentication
 
 ### Admin Login
+
 - **URL**: `http://localhost:5173/admin`
 - **Email**: `admin@swag.com`
 - **Password**: `Admin@123456`
 
 ### Change Credentials
+
 1. Edit `backend/.env`
 2. Or change via admin settings dashboard
 
@@ -51,6 +56,7 @@ npm run build
 ## 📝 Environment Variables
 
 ### Backend `.env`
+
 ```env
 PORT=5005
 MONGODB_URI=mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mongodb.net/swag_wheels_db
@@ -58,11 +64,12 @@ DATABASE_NAME=swag_wheels_db
 JWT_SECRET=change_me_to_random_key
 ADMIN_EMAIL=admin@swag.com
 ADMIN_PASSWORD=Admin@123456
-CONTACT_PHONE=+918827814985
+CONTACT_PHONE=++919289084361
 FRONTEND_URL=http://localhost:5173
 ```
 
 ### Frontend `.env.local`
+
 ```env
 VITE_BACKEND_URL=http://localhost:5005
 ```
@@ -71,7 +78,7 @@ VITE_BACKEND_URL=http://localhost:5005
 
 ## 📱 Contact Information
 
-**WhatsApp Phone:** `+91 88278 14985`  
+**WhatsApp Phone:** `+91 9289084361`  
 **WhatsApp Integration:** Direct messaging (no API calls)
 
 ---
@@ -90,6 +97,7 @@ VITE_BACKEND_URL=http://localhost:5005
 ## 🚗 Common Admin Tasks
 
 ### Add a Car
+
 1. Go to `http://localhost:5173/admin`
 2. Click **Cars** tab
 3. Click **+ Add Car**
@@ -98,12 +106,14 @@ VITE_BACKEND_URL=http://localhost:5005
 6. Car appears on website immediately
 
 ### Hide/Show a Car
+
 1. Go to Cars tab
 2. Find the car
 3. Click the Eye 👁️ icon to toggle visibility
 4. Car will hide/show from frontend
 
 ### Create a Blog Post
+
 1. Go to **Blogs** tab
 2. Click **+ Add Blog**
 3. Write title and content
@@ -111,12 +121,14 @@ VITE_BACKEND_URL=http://localhost:5005
 5. Blog appears on website
 
 ### Hide/Show a Blog
+
 1. Go to Blogs tab
 2. Find the blog
 3. Click Eye 👁️ icon to toggle visibility
 4. Blog will hide/show from frontend
 
 ### Manage Bookings
+
 1. Go to **Bookings** tab
 2. View all customer bookings
 3. Click **Update** to change status:
@@ -124,6 +136,7 @@ VITE_BACKEND_URL=http://localhost:5005
 4. Status automatically updates in system
 
 ### Reply to Contact Queries
+
 1. Go to **Queries** tab
 2. Find the query
 3. Click **Message on WhatsApp** button
@@ -131,6 +144,7 @@ VITE_BACKEND_URL=http://localhost:5005
 5. No API required - direct messaging only
 
 ### Add FAQs
+
 1. Go to **FAQs** tab
 2. Click **+ Add FAQ**
 3. Enter question and answer
@@ -142,6 +156,7 @@ VITE_BACKEND_URL=http://localhost:5005
 ## 📊 Dashboard Widgets
 
 ### Booking Overview
+
 - Total Bookings
 - Pending (Yellow)
 - Confirmed (Blue)
@@ -149,12 +164,14 @@ VITE_BACKEND_URL=http://localhost:5005
 - Revenue (Total from paid bookings)
 
 ### Contact Overview
+
 - Total Queries
 - New (Red)
 - Read (Yellow)
 - Replied (Green)
 
 ### Quick Stats
+
 - Response Rate: % of queries replied
 - Booking Conversion: % of bookings confirmed
 - Completion Rate: % of bookings completed
@@ -164,11 +181,13 @@ VITE_BACKEND_URL=http://localhost:5005
 ## 🔗 API Quick Reference
 
 ### Get All Cars
+
 ```bash
 curl http://localhost:5005/api/cars
 ```
 
 ### Create Booking
+
 ```bash
 curl -X POST http://localhost:5005/api/bookings \
   -H "Content-Type: application/json" \
@@ -188,6 +207,7 @@ curl -X POST http://localhost:5005/api/bookings \
 ```
 
 ### Admin Login
+
 ```bash
 curl -X POST http://localhost:5005/api/admin/login \
   -H "Content-Type: application/json" \
@@ -202,6 +222,7 @@ curl -X POST http://localhost:5005/api/admin/login \
 ## 🛠️ Troubleshooting Quick Fixes
 
 ### Backend not running?
+
 ```bash
 cd backend
 npm install
@@ -209,6 +230,7 @@ npm run dev
 ```
 
 ### MongoDB not connecting?
+
 ```bash
 # Start MongoDB
 mongod
@@ -218,6 +240,7 @@ mongod
 ```
 
 ### Admin login not working?
+
 ```bash
 # Clear browser storage
 localStorage.clear()
@@ -227,6 +250,7 @@ localStorage.clear()
 ```
 
 ### WhatsApp not sending?
+
 - Check phone number format: `91XXXXXXXXXX`
 - Verify internet connection
 - Check backend console logs
@@ -236,6 +260,7 @@ localStorage.clear()
 ## 📱 Mobile Testing
 
 ### Use ngrok for testing on mobile
+
 ```bash
 # Install ngrok
 # Start backend
@@ -252,6 +277,7 @@ ngrok http 5005
 ## 🔄 Restart Services
 
 ### All Services
+
 ```bash
 # Kill all Node processes
 pkill -f "node"

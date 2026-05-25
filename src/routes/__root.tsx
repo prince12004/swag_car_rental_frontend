@@ -81,6 +81,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  // SPA mode: index.html already provides HTML structure, just render children
+  if (!import.meta.env.SSR) {
+    return <>{children}</>;
+  }
   return (
     <html lang="en" className="dark">
       <head><HeadContent /></head>

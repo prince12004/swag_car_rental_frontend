@@ -80,7 +80,7 @@ function ContactPage() {
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-8">
             {/* Info */}
             <div className="space-y-4">
-              <ContactCard Icon={Phone} title="Call us" value="+91 88278 14985" href="tel:+918827814985" />
+              <ContactCard Icon={Phone} title="Call us" value="+91 9289084361" href="tel:++919289084361" />
               <ContactCard Icon={Mail} title="Email" value="info@swagrental.com" href="mailto:info@swagrental.com" />
               <ContactCard Icon={MapPin} title="Visit" value="1 Neon Drive, Los Angeles, CA 90012" />
 
@@ -88,10 +88,10 @@ function ContactPage() {
                 <h3 className="label-display text-primary mb-3">Follow</h3>
                 <div className="flex gap-3">
                   {[
-                    { Icon: Instagram, href: "https://instagram.com/swagrental" },
-                    { Icon: Twitter, href: "https://twitter.com/swagrental" },
-                    { Icon: Facebook, href: "https://facebook.com/swagrental" },
-                    { Icon: Youtube, href: "https://youtube.com/@swagrental" },
+                    { Icon: Instagram, href: "https://www.instagram.com/swag.carrental?igsh=dXJ6Znp4ZjV3dGIy" },
+                    // { Icon: Twitter, href: "https://twitter.com/swagrental" },
+                    { Icon: Facebook, href: "https://www.facebook.com/people/Aakash-Singh/pfbid0255SujFdo2UCvervrnSd5r6spwxzausevE6dMwmyqUFBQDvByhd8UELQFfPMfXLBRl/?rdid=onHgpZaTF8RkvbYG&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18EoZtdRCH%2F" },
+                    // { Icon: Youtube, href: "https://youtube.com/@swagrental" },
                   ].map(({ Icon, href }, i) => (
                     <a key={i} href={href} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-lg glass grid place-items-center text-foreground/70 hover:text-primary hover:border-primary/50 transition-colors">
                       <Icon className="h-4 w-4" />

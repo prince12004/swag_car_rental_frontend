@@ -3,6 +3,7 @@
 ## 📋 Quick Start
 
 ### Admin Panel Access
+
 ```
 URL: http://localhost:5173/admin
 Email: admin@swag.com
@@ -10,9 +11,10 @@ Password: Admin@123456
 ```
 
 ### Contact Info (for all inquiries)
+
 ```
-Phone: +91 88278 14985
-WhatsApp: https://wa.me/918827814985
+Phone: +91 9289084361
+WhatsApp: https://wa.me/+919289084361
 ```
 
 ---
@@ -20,13 +22,16 @@ WhatsApp: https://wa.me/918827814985
 ## ✨ All Features Available
 
 ### 1. **Dashboard**
+
 Shows real-time stats:
+
 - Total Cars
 - Active Bookings
 - Pending Queries
 - Revenue Overview
 
 ### 2. **Cars Management** 🚗
+
 - ✅ Add new cars
 - ✅ Edit car details
 - ✅ Delete cars
@@ -35,6 +40,7 @@ Shows real-time stats:
 - ✅ Upload multiple images
 
 **Car Fields:**
+
 - Title, Brand, Category
 - Price per day
 - Seats, Fuel type, Transmission
@@ -42,6 +48,7 @@ Shows real-time stats:
 - Rating, Available status
 
 ### 3. **Blogs Management** 📝
+
 - ✅ Create blog posts
 - ✅ Edit blog content
 - ✅ Delete blogs
@@ -50,12 +57,14 @@ Shows real-time stats:
 - ✅ Featured images
 
 **Blog Fields:**
+
 - Title, Slug, Category
 - Cover image, Content
 - Author, Excerpt
 - Publish status
 
 ### 4. **Bookings Management** 📅
+
 - ✅ View all bookings
 - ✅ Update booking status (pending → confirmed → completed → cancelled)
 - ✅ View customer details
@@ -63,12 +72,14 @@ Shows real-time stats:
 - ✅ Filter by status
 
 **Booking Fields:**
+
 - Customer name, email, phone
 - Car details
 - Pickup/Drop locations & dates
 - Total price, Status, Messages
 
 ### 5. **Contact Queries** 💬
+
 - ✅ View all contact form submissions
 - ✅ Mark queries as read/unread
 - ✅ **Direct WhatsApp integration** (no API)
@@ -76,12 +87,14 @@ Shows real-time stats:
 - ✅ Delete queries
 
 **WhatsApp Feature:**
+
 - Click "Message on WhatsApp" button
 - Opens WhatsApp chat with pre-filled message
 - No API required - direct messaging only
-- Phone: +91 88278 14985
+- Phone: +91 9289084361
 
 ### 6. **FAQs Management** ❓
+
 - ✅ Add new FAQs
 - ✅ Edit FAQ answers
 - ✅ Delete FAQs
@@ -90,6 +103,7 @@ Shows real-time stats:
 - ✅ Category management
 
 **FAQ Fields:**
+
 - Question, Answer
 - Category, Order
 - Publish status
@@ -99,6 +113,7 @@ Shows real-time stats:
 ## 🗄️ MongoDB Collections
 
 ### Database Details
+
 ```
 Connection: mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mongodb.net/
 Database: swag_wheels_db
@@ -107,6 +122,7 @@ Database: swag_wheels_db
 ### Collection Schemas
 
 #### **cars**
+
 ```javascript
 {
   id: ObjectId,
@@ -131,6 +147,7 @@ Database: swag_wheels_db
 ```
 
 #### **blogs**
+
 ```javascript
 {
   id: ObjectId,
@@ -149,6 +166,7 @@ Database: swag_wheels_db
 ```
 
 #### **bookings**
+
 ```javascript
 {
   id: ObjectId,
@@ -171,6 +189,7 @@ Database: swag_wheels_db
 ```
 
 #### **contact_queries**
+
 ```javascript
 {
   id: ObjectId,
@@ -187,6 +206,7 @@ Database: swag_wheels_db
 ```
 
 #### **faqs**
+
 ```javascript
 {
   id: ObjectId,
@@ -207,58 +227,66 @@ Database: swag_wheels_db
 All endpoints available at `http://localhost:5005`
 
 ### Cars
-| Method | Endpoint | Purpose |
-|--------|----------|---------|
-| GET | `/api/cars` | Get all cars |
-| POST | `/api/cars` | Create car |
-| GET | `/api/cars/:id` | Get single car |
-| PATCH | `/api/cars/:id` | Update car |
-| DELETE | `/api/cars/:id` | Delete car |
+
+| Method | Endpoint        | Purpose        |
+| ------ | --------------- | -------------- |
+| GET    | `/api/cars`     | Get all cars   |
+| POST   | `/api/cars`     | Create car     |
+| GET    | `/api/cars/:id` | Get single car |
+| PATCH  | `/api/cars/:id` | Update car     |
+| DELETE | `/api/cars/:id` | Delete car     |
 
 ### Blogs
-| Method | Endpoint | Purpose |
-|--------|----------|---------|
-| GET | `/api/blogs` | Get all blogs |
-| POST | `/api/blogs` | Create blog |
-| GET | `/api/blogs/:id` | Get blog |
-| PATCH | `/api/blogs/:id` | Update blog |
-| DELETE | `/api/blogs/:id` | Delete blog |
+
+| Method | Endpoint         | Purpose       |
+| ------ | ---------------- | ------------- |
+| GET    | `/api/blogs`     | Get all blogs |
+| POST   | `/api/blogs`     | Create blog   |
+| GET    | `/api/blogs/:id` | Get blog      |
+| PATCH  | `/api/blogs/:id` | Update blog   |
+| DELETE | `/api/blogs/:id` | Delete blog   |
 
 ### Bookings
-| Method | Endpoint | Purpose |
-|--------|----------|---------|
-| GET | `/api/bookings` | Get all bookings |
-| POST | `/api/bookings` | Create booking |
-| PATCH | `/api/bookings/:id` | Update booking |
-| DELETE | `/api/bookings/:id` | Delete booking |
+
+| Method | Endpoint            | Purpose          |
+| ------ | ------------------- | ---------------- |
+| GET    | `/api/bookings`     | Get all bookings |
+| POST   | `/api/bookings`     | Create booking   |
+| PATCH  | `/api/bookings/:id` | Update booking   |
+| DELETE | `/api/bookings/:id` | Delete booking   |
 
 ### Contact Queries
-| Method | Endpoint | Purpose |
-|--------|----------|---------|
-| GET | `/api/contact_queries` | Get all queries |
-| POST | `/api/contact_queries` | Create query |
-| PATCH | `/api/contact_queries/:id` | Mark as read |
-| DELETE | `/api/contact_queries/:id` | Delete query |
+
+| Method | Endpoint                   | Purpose         |
+| ------ | -------------------------- | --------------- |
+| GET    | `/api/contact_queries`     | Get all queries |
+| POST   | `/api/contact_queries`     | Create query    |
+| PATCH  | `/api/contact_queries/:id` | Mark as read    |
+| DELETE | `/api/contact_queries/:id` | Delete query    |
 
 ### FAQs
-| Method | Endpoint | Purpose |
-|--------|----------|---------|
-| GET | `/api/faqs` | Get all FAQs |
-| POST | `/api/faqs` | Create FAQ |
-| PATCH | `/api/faqs/:id` | Update FAQ |
-| DELETE | `/api/faqs/:id` | Delete FAQ |
+
+| Method | Endpoint        | Purpose      |
+| ------ | --------------- | ------------ |
+| GET    | `/api/faqs`     | Get all FAQs |
+| POST   | `/api/faqs`     | Create FAQ   |
+| PATCH  | `/api/faqs/:id` | Update FAQ   |
+| DELETE | `/api/faqs/:id` | Delete FAQ   |
 
 ---
 
 ## 📱 WhatsApp Integration Details
 
 ### No API Calls Required ✅
+
 Instead of using WhatsApp Business API:
+
 - All messages are sent as direct WhatsApp links
 - User clicks button → WhatsApp opens automatically
 - Message is pre-filled with customer info
 
 ### How It Works
+
 1. **Contact Query Received** → Stored in MongoDB
 2. **Admin Dashboard Shows Query** with WhatsApp button
 3. **Click "Message on WhatsApp"** → Opens WhatsApp chat
@@ -266,12 +294,14 @@ Instead of using WhatsApp Business API:
 5. **Direct conversation** starts with customer
 
 ### WhatsApp Link Format
+
 ```
-https://wa.me/918827814985?text=Customer%20inquiry%20about%20[subject]
+https://wa.me/+919289084361?text=Customer%20inquiry%20about%20[subject]
 ```
 
 ### Contact Number
-- **Phone:** +91 88278 14985
+
+- **Phone:** +91 9289084361
 - **WhatsApp:** Same number
 - **Pre-filled messages** include customer name, email, inquiry details
 
@@ -280,6 +310,7 @@ https://wa.me/918827814985?text=Customer%20inquiry%20about%20[subject]
 ## 🔧 Setup Instructions
 
 ### 1. MongoDB Setup
+
 ```bash
 # Collections already created in MongoDB
 # Use provided connection string
@@ -289,6 +320,7 @@ mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mo
 ### 2. Environment Variables
 
 **Backend (.env)**
+
 ```
 MONGODB_URI=mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mongodb.net/swag_wheels_db
 DATABASE_NAME=swag_wheels_db
@@ -299,11 +331,13 @@ ADMIN_PASSWORD=Admin@123456
 ```
 
 **Frontend (.env)**
+
 ```
 VITE_BACKEND_URL=http://localhost:5005
 ```
 
 ### 3. Start Application
+
 ```bash
 # Backend
 cd backend
@@ -321,6 +355,7 @@ npm run dev
 ## 🎨 Admin Panel UI Features
 
 ### Tab Navigation
+
 - Dashboard (stats overview)
 - Cars (CRUD with publish toggle)
 - Blogs (CRUD with publish toggle)
@@ -330,6 +365,7 @@ npm run dev
 - Testimonials (customer reviews)
 
 ### Common Actions
+
 - **Add** - Create new items (+ button)
 - **Edit** - Update existing items (pencil icon)
 - **Delete** - Remove items (trash icon)
@@ -337,6 +373,7 @@ npm run dev
 - **WhatsApp** - Send message directly (WhatsApp icon)
 
 ### Responsive Design
+
 - Mobile-friendly admin panel
 - Touch-optimized buttons
 - Responsive tables
@@ -347,6 +384,7 @@ npm run dev
 ## ✅ What's Changed
 
 ### ✨ Completed Migrations
+
 - ✅ Removed all Supabase imports
 - ✅ Replaced with MongoDB API calls
 - ✅ Updated all routes to use BACKEND_URL
@@ -360,6 +398,7 @@ npm run dev
 - ✅ WhatsApp integration for contact queries
 
 ### 📁 Updated Files
+
 - `src/routes/admin.tsx` - Full admin panel
 - `src/routes/index.tsx` - Homepage with API calls
 - `src/routes/blog.tsx` - Blog list with API
@@ -402,13 +441,14 @@ npm run dev
 ## 📞 Support
 
 **For any issues:**
+
 - Check MongoDB connection
 - Verify admin credentials
 - Clear browser cache
 - Check console for errors
 - Verify API endpoints are responding
 
-**Contact:** +91 88278 14985
+**Contact:** +91 9289084361
 
 ---
 

@@ -5,6 +5,7 @@ A complete, production-ready car rental platform with admin dashboard, WhatsApp 
 ## ✨ Features
 
 ### 🎯 Core Features
+
 - 🔐 **Admin Authentication**: Secure JWT-based login
 - 🚗 **Fleet Management**: Add, edit, delete cars with full details
 - 📝 **Blog Management**: Publish blog posts with categories and tags
@@ -14,6 +15,7 @@ A complete, production-ready car rental platform with admin dashboard, WhatsApp 
 - 📱 **WhatsApp Integration**: Automatic notifications for bookings and queries
 
 ### 🔧 Technical Stack
+
 - **Frontend**: React + TanStack Router + TypeScript + Tailwind CSS + Vite
 - **Backend**: Node.js + Express + MongoDB + JWT
 - **Admin Panel**: Full-featured dashboard with CRUD operations
@@ -24,22 +26,25 @@ A complete, production-ready car rental platform with admin dashboard, WhatsApp 
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js >= 18
 - MongoDB (local or Atlas)
 - npm or bun
 
 ### Step 1: Clone & Install
+
 ```bash
 # Frontend dependencies
 npm install
 
-# Backend dependencies  
+# Backend dependencies
 cd backend
 npm install
 cd ..
 ```
 
 ### Step 2: Configure Environment
+
 ```bash
 # Backend configuration
 cd backend
@@ -53,6 +58,7 @@ cp .env.local.example .env.local
 ```
 
 ### Step 3: Start MongoDB
+
 ```bash
 # Local MongoDB
 mongod
@@ -62,6 +68,7 @@ mongod
 ```
 
 ### Step 4: Run Services
+
 ```bash
 # Terminal 1: Backend
 cd backend
@@ -72,11 +79,13 @@ npm run dev
 ```
 
 ### Step 5: Access the Application
+
 - **Frontend**: http://localhost:5173
 - **Admin Panel**: http://localhost:5173/admin
 - **API**: http://localhost:5005/api
 
 ### Step 6: Login to Admin
+
 - **Email**: admin@swagwheels.com (or from .env)
 - **Password**: admin123456 (or from .env)
 
@@ -85,24 +94,28 @@ npm run dev
 ## 📋 Admin Panel Features
 
 ### Dashboard
+
 - View booking statistics
 - Track revenue
 - Monitor contact queries
 - Response rate metrics
 
 ### 🚗 Cars Management
+
 - Add cars with full specifications
 - Edit car details and pricing
 - Toggle availability status
 - Manage fleet inventory
 
 ### 📝 Blogs Management
+
 - Create blog posts
 - Publish/unpublish posts
 - Manage categories and tags
 - Track views and likes
 
 ### 📅 Bookings
+
 - View all bookings
 - Update booking status
 - Cancel bookings
@@ -110,12 +123,14 @@ npm run dev
 - Monitor payment status
 
 ### 💬 Contact Queries
+
 - View customer inquiries
 - Reply to queries (via WhatsApp)
 - Track response status
 - Delete old queries
 
 ### ⚙️ Settings
+
 - Update admin profile
 - Change password
 - View account information
@@ -125,6 +140,7 @@ npm run dev
 ## 🔗 API Endpoints
 
 ### Public Endpoints
+
 ```
 GET    /api/cars                    - Get all cars
 GET    /api/cars/search             - Search cars
@@ -136,6 +152,7 @@ POST   /api/contact                 - Submit contact form
 ```
 
 ### Protected Endpoints (Admin)
+
 ```
 POST   /api/admin/login             - Admin login
 GET    /api/admin/profile           - Get profile
@@ -168,6 +185,7 @@ See [API_DOCUMENTATION.md](API_DOCUMENTATION.md) for detailed documentation.
 ## 📱 WhatsApp Integration
 
 ### Automatic Notifications
+
 - ✅ Booking confirmation sent to customer
 - ✅ Admin notified of new bookings
 - ✅ Contact query acknowledgment
@@ -176,11 +194,13 @@ See [API_DOCUMENTATION.md](API_DOCUMENTATION.md) for detailed documentation.
 ### Setup Options
 
 #### Option 1: Manual (Development)
+
 - Uses WhatsApp Web URL format
 - No API credentials needed
 - Good for testing
 
 #### Option 2: Twilio (Recommended)
+
 ```env
 TWILIO_ACCOUNT_SID=your_account_sid
 TWILIO_AUTH_TOKEN=your_auth_token
@@ -188,6 +208,7 @@ TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
 ```
 
 #### Option 3: WhatsApp Business API
+
 - Official WhatsApp integration
 - Requires business account
 - Best for production
@@ -197,6 +218,7 @@ TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
 ## 📊 Database Models
 
 ### Car
+
 ```javascript
 {
   name, brand, model, year, price, pricePerDay,
@@ -207,6 +229,7 @@ TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
 ```
 
 ### Blog
+
 ```javascript
 {
   title, slug, content, excerpt, author, image,
@@ -216,30 +239,43 @@ TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
 ```
 
 ### Booking
+
 ```javascript
 {
-  carId, carName, customerName, customerEmail,
-  customerPhone, pickupDate, dropDate,
-  pickupLocation, dropLocation, totalDays,
-  pricePerDay, totalPrice, status, paymentStatus,
-  specialRequests, whatsappSent, createdAt, updatedAt
+  (carId,
+    carName,
+    customerName,
+    customerEmail,
+    customerPhone,
+    pickupDate,
+    dropDate,
+    pickupLocation,
+    dropLocation,
+    totalDays,
+    pricePerDay,
+    totalPrice,
+    status,
+    paymentStatus,
+    specialRequests,
+    whatsappSent,
+    createdAt,
+    updatedAt);
 }
 ```
 
 ### ContactQuery
+
 ```javascript
 {
-  name, email, phone, subject, message,
-  status, whatsappSent, adminReply,
-  createdAt, updatedAt
+  (name, email, phone, subject, message, status, whatsappSent, adminReply, createdAt, updatedAt);
 }
 ```
 
 ### Admin
+
 ```javascript
 {
-  email, password, name, role, isActive,
-  lastLogin, createdAt, updatedAt
+  (email, password, name, role, isActive, lastLogin, createdAt, updatedAt);
 }
 ```
 
@@ -248,14 +284,18 @@ TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
 ## 🛠️ Customization
 
 ### Change Admin Credentials
+
 Edit `backend/.env`:
+
 ```env
 ADMIN_EMAIL=youremail@domain.com
 ADMIN_PASSWORD=your_secure_password
 ```
 
 ### Add Car Categories
+
 Edit `backend/src/models/Car.ts`:
+
 ```typescript
 type: {
   enum: ['sedan', 'suv', 'hatchback', 'truck', 'luxury', 'van', 'sports']
@@ -263,12 +303,15 @@ type: {
 ```
 
 ### Customize WhatsApp Messages
+
 Edit `backend/src/utils/whatsappService.ts`:
+
 - Modify message templates
 - Add custom branding
 - Change message format
 
 ### Customize UI
+
 - Replace logo in `src/assets/`
 - Edit colors in `tailwind.config.ts`
 - Modify components in `src/components/`
@@ -312,12 +355,14 @@ swag-wheels/
 ## 🚀 Deployment
 
 ### Frontend (Vercel/Netlify)
+
 ```bash
 npm run build
 # Deploy the dist/ folder
 ```
 
 ### Backend (Heroku/Railway/Render)
+
 ```bash
 cd backend
 npm run build
@@ -325,6 +370,7 @@ npm run build
 ```
 
 ### Database (MongoDB Atlas)
+
 1. Create free cluster on MongoDB Atlas
 2. Get connection string
 3. Update `MONGODB_URI` in `.env`
@@ -347,6 +393,7 @@ npm run build
 ## 🐛 Troubleshooting
 
 ### Backend won't start
+
 ```bash
 # Clear and reinstall
 cd backend
@@ -356,6 +403,7 @@ npm run dev
 ```
 
 ### MongoDB connection error
+
 ```bash
 # Check if MongoDB is running
 mongod
@@ -365,12 +413,14 @@ MONGODB_URI=mongodb://localhost:27017/swag-wheels
 ```
 
 ### Admin login fails
+
 - Check credentials in `.env`
 - Verify token expiration
 - Clear browser localStorage
 - Check backend console for errors
 
 ### WhatsApp not working
+
 - Verify phone number format (91XXXXXXXXXX)
 - Check internet connection
 - For Twilio: verify credentials
@@ -382,7 +432,7 @@ MONGODB_URI=mongodb://localhost:27017/swag-wheels
 
 - **Documentation**: See [SETUP_GUIDE.md](SETUP_GUIDE.md) and [API_DOCUMENTATION.md](API_DOCUMENTATION.md)
 - **Issues**: Check troubleshooting section
-- **Contact**: +91 88278 14985
+- **Contact**: +91 9289084361
 
 ---
 

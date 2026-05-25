@@ -93,7 +93,7 @@ function CarDetailsPage() {
 
   const share = async () => {
     if (navigator.share) {
-      await navigator.share({ title: car.title, url: window.location.href }).catch(() => {});
+      await navigator.share({ title: car.title, url: window.location.href }).catch(() => { });
     } else {
       navigator.clipboard.writeText(window.location.href);
     }
@@ -186,8 +186,8 @@ function CarDetailsPage() {
                   <button onClick={share} className="btn-ghost-neon">
                     <Share2 className="h-4 w-4" /> Share
                   </button>
-                  <a href="tel:+918827814985" className="btn-ghost-neon">
-                    <Phone className="h-4 w-4" /> Call: +91 88278 14985
+                  <a href="tel:++919289084361" className="btn-ghost-neon">
+                    <Phone className="h-4 w-4" /> Call: +91 9289084361
                   </a>
                 </div>
               </div>

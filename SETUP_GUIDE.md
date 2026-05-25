@@ -3,6 +3,7 @@
 ## Complete System Overview
 
 This is a full-stack car rental application with:
+
 - **Frontend**: React with TanStack Router, Vite, and Tailwind CSS
 - **Backend**: Node.js Express with MongoDB
 - **Admin Panel**: Complete dashboard for managing cars, blogs, bookings, and contact queries
@@ -22,6 +23,7 @@ cp .env.example .env
 ```
 
 Edit `.env`:
+
 ```env
 PORT=5005
 MONGODB_URI=mongodb://localhost:27017/swag-wheels
@@ -33,11 +35,13 @@ FRONTEND_URL=http://localhost:5173
 ```
 
 Start MongoDB:
+
 ```bash
 mongod
 ```
 
 Start backend:
+
 ```bash
 npm run dev
 ```
@@ -51,11 +55,13 @@ npm install
 ```
 
 Create `.env.local`:
+
 ```env
 VITE_BACKEND_URL=http://localhost:5005
 ```
 
 Start frontend:
+
 ```bash
 npm run dev
 ```
@@ -67,10 +73,12 @@ Frontend will run on `http://localhost:5173`
 ## 🔐 Admin Access
 
 ### Default Credentials
+
 - **Email**: `admin@swagwheels.com`
 - **Password**: `admin123456`
 
 ### Access Admin Panel
+
 1. Navigate to `http://localhost:5173/admin`
 2. Login with default credentials
 3. Change password in Settings tab
@@ -80,11 +88,13 @@ Frontend will run on `http://localhost:5173`
 ## 📊 Admin Panel Features
 
 ### Dashboard
+
 - Overview of bookings, revenue, and inquiries
 - Quick statistics and metrics
 - Real-time data updates
 
 ### 🚗 Cars Management
+
 - Add new cars to fleet
 - Edit car details (price, features, availability)
 - Delete cars
@@ -92,6 +102,7 @@ Frontend will run on `http://localhost:5173`
 - Car specifications: type, transmission, fuel type, seating
 
 ### 📝 Blogs Management
+
 - Create and publish blog posts
 - Add categories and tags
 - Track views and likes
@@ -99,6 +110,7 @@ Frontend will run on `http://localhost:5173`
 - SEO-friendly slug generation
 
 ### 📅 Bookings Management
+
 - View all bookings with filters
 - Update booking status (pending → confirmed → completed)
 - Cancel bookings
@@ -107,6 +119,7 @@ Frontend will run on `http://localhost:5173`
 - WhatsApp notifications sent automatically
 
 ### 💬 Contact Queries Management
+
 - View customer inquiries
 - Filter by status (new, read, replied)
 - Reply to queries (sent via WhatsApp automatically)
@@ -114,6 +127,7 @@ Frontend will run on `http://localhost:5173`
 - Response statistics
 
 ### ⚙️ Settings
+
 - Update admin profile
 - Change password
 - View system information
@@ -124,6 +138,7 @@ Frontend will run on `http://localhost:5173`
 ## 🔗 API Endpoints
 
 ### Admin APIs
+
 ```
 POST   /api/admin/register              - Register new admin
 POST   /api/admin/login                 - Admin login
@@ -133,6 +148,7 @@ PUT    /api/admin/change-password       - Change password (Protected)
 ```
 
 ### Car APIs
+
 ```
 GET    /api/cars                        - Get all cars
 GET    /api/cars/search?query=...       - Search cars
@@ -144,6 +160,7 @@ PATCH  /api/cars/:id/availability       - Toggle availability (Admin)
 ```
 
 ### Blog APIs
+
 ```
 GET    /api/blogs                       - Get all blogs
 GET    /api/blogs/slug/:slug            - Get blog by slug
@@ -155,6 +172,7 @@ PATCH  /api/blogs/:id/publish           - Publish/unpublish (Admin)
 ```
 
 ### Booking APIs
+
 ```
 POST   /api/bookings                    - Create booking (WhatsApp notification sent)
 GET    /api/bookings                    - Get all bookings (Admin)
@@ -165,6 +183,7 @@ PUT    /api/bookings/:id/cancel         - Cancel booking (Admin)
 ```
 
 ### Contact APIs
+
 ```
 POST   /api/contact                     - Create contact query (WhatsApp notification)
 GET    /api/contact                     - Get all queries (Admin)
@@ -194,6 +213,7 @@ DELETE /api/contact/:id                 - Delete query (Admin)
 ### WhatsApp Message Templates
 
 #### Booking Confirmation
+
 ```
 Hello [Name]! 🚗
 
@@ -210,13 +230,14 @@ Thank you for choosing SWAG Wheels!
 ```
 
 #### Contact Query Response
+
 ```
 Hi [Name]! 👋
 
 We received your message about [Subject].
 Our team will respond within 24 hours.
 
-For immediate help: +91 88278 14985
+For immediate help: +91 9289084361
 
 SWAG Wheels
 ```
@@ -224,11 +245,13 @@ SWAG Wheels
 ### Setup WhatsApp Integration
 
 Option 1: **Manual WhatsApp Links** (Development)
+
 - Uses WhatsApp Web URLs
 - Works without API credentials
 - Good for testing
 
 Option 2: **Twilio WhatsApp API** (Production)
+
 ```env
 TWILIO_ACCOUNT_SID=your_account_sid
 TWILIO_AUTH_TOKEN=your_auth_token
@@ -236,6 +259,7 @@ TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
 ```
 
 Option 3: **WhatsApp Business API** (Official)
+
 - Requires WhatsApp Business Account
 - Professional support
 - Higher rate limits
@@ -289,6 +313,7 @@ swag-wheels-drive/
 ### Change Admin Credentials
 
 1. In backend `.env`:
+
 ```env
 ADMIN_EMAIL=your_email@yourdomain.com
 ADMIN_PASSWORD=secure_password_here
@@ -299,6 +324,7 @@ ADMIN_PASSWORD=secure_password_here
 ### Add More Car Categories
 
 Edit [backend/src/models/Car.ts](backend/src/models/Car.ts):
+
 ```typescript
 type: {
   type: String,
@@ -315,6 +341,7 @@ Edit [backend/src/utils/whatsappService.ts](backend/src/utils/whatsappService.ts
 ## 🔄 Database Models
 
 ### Car
+
 ```javascript
 {
   name, brand, model, year, price, pricePerDay,
@@ -326,6 +353,7 @@ Edit [backend/src/utils/whatsappService.ts](backend/src/utils/whatsappService.ts
 ```
 
 ### Blog
+
 ```javascript
 {
   title, slug, content, excerpt, author, image,
@@ -335,30 +363,43 @@ Edit [backend/src/utils/whatsappService.ts](backend/src/utils/whatsappService.ts
 ```
 
 ### Booking
+
 ```javascript
 {
-  carId, carName, customerName, customerEmail, customerPhone,
-  pickupDate, dropDate, pickupLocation, dropLocation,
-  totalDays, pricePerDay, totalPrice,
-  status, paymentStatus, specialRequests,
-  whatsappSent, createdAt, updatedAt
+  (carId,
+    carName,
+    customerName,
+    customerEmail,
+    customerPhone,
+    pickupDate,
+    dropDate,
+    pickupLocation,
+    dropLocation,
+    totalDays,
+    pricePerDay,
+    totalPrice,
+    status,
+    paymentStatus,
+    specialRequests,
+    whatsappSent,
+    createdAt,
+    updatedAt);
 }
 ```
 
 ### ContactQuery
+
 ```javascript
 {
-  name, email, phone, subject, message,
-  status, whatsappSent, adminReply,
-  createdAt, updatedAt
+  (name, email, phone, subject, message, status, whatsappSent, adminReply, createdAt, updatedAt);
 }
 ```
 
 ### Admin
+
 ```javascript
 {
-  email, password (hashed), name, role,
-  isActive, lastLogin, createdAt, updatedAt
+  (email, password(hashed), name, role, isActive, lastLogin, createdAt, updatedAt);
 }
 ```
 
@@ -367,6 +408,7 @@ Edit [backend/src/utils/whatsappService.ts](backend/src/utils/whatsappService.ts
 ## 📊 Statistics & Metrics
 
 ### Dashboard Shows:
+
 - **Total Bookings**: Number of all bookings
 - **Pending Bookings**: Awaiting confirmation
 - **Confirmed Bookings**: Ready for pickup
@@ -381,6 +423,7 @@ Edit [backend/src/utils/whatsappService.ts](backend/src/utils/whatsappService.ts
 ## 🚨 Troubleshooting
 
 ### Backend won't start
+
 ```bash
 # Check MongoDB is running
 mongod
@@ -391,18 +434,21 @@ npm install
 ```
 
 ### API errors
+
 - Check MONGODB_URI in .env
 - Ensure backend is running on port 5005
 - Check JWT_SECRET is set
 - Verify CORS is enabled
 
 ### WhatsApp not working
+
 - Verify WHATSAPP_PHONE_NUMBER format (91XXXXXXXXXX)
 - Check internet connection
 - If using Twilio, verify credentials
 - Check backend console logs
 
 ### Admin login fails
+
 - Verify admin credentials in .env
 - Clear browser localStorage
 - Check token expiration
@@ -412,7 +458,7 @@ npm install
 
 ## 📞 Support
 
-- **Phone**: +91 88278 14985
+- **Phone**: +91 9289084361
 - **Email**: support@swagwheels.com
 - **WhatsApp**: Message us directly
 

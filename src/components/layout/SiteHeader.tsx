@@ -70,9 +70,9 @@ export function SiteHeader() {
           <div className="hidden lg:flex items-center gap-3">
             <a href="tel:+15557924227" className="flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors">
               <Phone className="h-4 w-4 text-primary" />
-              <span className="font-display font-bold tracking-wider">+91 88278 14985</span>
+              <span className="font-display font-bold tracking-wider">+91 9289084361</span>
             </a>
-            
+
             <Link to="/cars" className="btn-neon !py-2.5 !px-5 !text-xs">
               Book Ride
             </Link>
@@ -98,7 +98,7 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-       
+
             <Link to="/cars" className="btn-neon w-full mt-2">
               Book Ride
             </Link>

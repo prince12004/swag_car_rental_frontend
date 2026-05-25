@@ -5,6 +5,7 @@
 **Admin Panel URL:** `http://localhost:5005/admin`
 
 ### Login Credentials
+
 ```
 Email: admin@swag.com
 Password: Admin@123456
@@ -14,16 +15,16 @@ Password: Admin@123456
 
 ## 📱 Application URLs
 
-| Purpose | URL |
-|---------|-----|
-| Frontend Home | http://localhost:5173 |
-| Admin Dashboard | http://localhost:5173/admin |
-| API Base | http://localhost:5005 |
-| Cars API | http://localhost:5005/api/cars |
-| Blogs API | http://localhost:5005/api/blogs |
-| Bookings API | http://localhost:5005/api/bookings |
+| Purpose             | URL                                       |
+| ------------------- | ----------------------------------------- |
+| Frontend Home       | http://localhost:5173                     |
+| Admin Dashboard     | http://localhost:5173/admin               |
+| API Base            | http://localhost:5005                     |
+| Cars API            | http://localhost:5005/api/cars            |
+| Blogs API           | http://localhost:5005/api/blogs           |
+| Bookings API        | http://localhost:5005/api/bookings        |
 | Contact Queries API | http://localhost:5005/api/contact_queries |
-| FAQs API | http://localhost:5005/api/faqs |
+| FAQs API            | http://localhost:5005/api/faqs            |
 
 ---
 
@@ -39,6 +40,7 @@ DATABASE_NAME: swag_wheels_db
 ## 📊 MongoDB Collections Structure
 
 ### 1. **cars** Collection
+
 Stores all car listings with hide/unhide functionality.
 
 ```javascript
@@ -65,6 +67,7 @@ Stores all car listings with hide/unhide functionality.
 ```
 
 **Sample Data:**
+
 ```javascript
 db.cars.insertMany([
   {
@@ -84,7 +87,7 @@ db.cars.insertMany([
     is_published: true,
     is_featured: true,
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
   {
     title: "Audi R8 Sports",
@@ -103,7 +106,7 @@ db.cars.insertMany([
     is_published: true,
     is_featured: true,
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
   {
     title: "Mahindra XUV700 SUV",
@@ -122,14 +125,15 @@ db.cars.insertMany([
     is_published: true,
     is_featured: false,
     createdAt: new Date(),
-    updatedAt: new Date()
-  }
-])
+    updatedAt: new Date(),
+  },
+]);
 ```
 
 ---
 
 ### 2. **blogs** Collection
+
 Blog posts with publish/unpublish functionality.
 
 ```javascript
@@ -150,6 +154,7 @@ Blog posts with publish/unpublish functionality.
 ```
 
 **Sample Data:**
+
 ```javascript
 db.blogs.insertMany([
   {
@@ -163,7 +168,7 @@ db.blogs.insertMany([
     is_published: true,
     published_at: new Date("2026-05-15"),
     createdAt: new Date("2026-05-15"),
-    updatedAt: new Date("2026-05-15")
+    updatedAt: new Date("2026-05-15"),
   },
   {
     title: "Top 5 Supercars for Weekend Getaway",
@@ -176,14 +181,15 @@ db.blogs.insertMany([
     is_published: true,
     published_at: new Date("2026-05-10"),
     createdAt: new Date("2026-05-10"),
-    updatedAt: new Date("2026-05-10")
-  }
-])
+    updatedAt: new Date("2026-05-10"),
+  },
+]);
 ```
 
 ---
 
 ### 3. **bookings** Collection
+
 Customer booking records with status tracking.
 
 ```javascript
@@ -208,12 +214,13 @@ Customer booking records with status tracking.
 ```
 
 **Sample Data:**
+
 ```javascript
 db.bookings.insertMany([
   {
     customerName: "Raj Kumar",
     customerEmail: "raj@example.com",
-    customerPhone: "+91 88278 14985",
+    customerPhone: "+91 9289084361",
     carId: ObjectId("..."),
     carTitle: "BMW M5 Sedan",
     pickupLocation: "Mumbai Airport",
@@ -225,14 +232,15 @@ db.bookings.insertMany([
     message: "Need for business trip",
     whatsappMessage: "Hi, I need BMW M5 for June 1-3",
     createdAt: new Date(),
-    updatedAt: new Date()
-  }
-])
+    updatedAt: new Date(),
+  },
+]);
 ```
 
 ---
 
 ### 4. **contact_queries** Collection
+
 Contact form submissions with WhatsApp integration.
 
 ```javascript
@@ -251,6 +259,7 @@ Contact form submissions with WhatsApp integration.
 ```
 
 **Sample Data:**
+
 ```javascript
 db.contact_queries.insertMany([
   {
@@ -260,16 +269,18 @@ db.contact_queries.insertMany([
     subject: "Inquiry about wedding fleet",
     message: "Looking for 10 cars for wedding event",
     is_read: false,
-    whatsappLink: "https://wa.me/918827814985?text=Hi%20SWAG%20team%2C%20I%20have%20a%20query%20about%20wedding%20fleet",
+    whatsappLink:
+      "https://wa.me/+919289084361?text=Hi%20SWAG%20team%2C%20I%20have%20a%20query%20about%20wedding%20fleet",
     createdAt: new Date(),
-    updatedAt: new Date()
-  }
-])
+    updatedAt: new Date(),
+  },
+]);
 ```
 
 ---
 
 ### 5. **faqs** Collection
+
 Frequently asked questions.
 
 ```javascript
@@ -286,6 +297,7 @@ Frequently asked questions.
 ```
 
 **Sample Data:**
+
 ```javascript
 db.faqs.insertMany([
   {
@@ -295,7 +307,7 @@ db.faqs.insertMany([
     is_published: true,
     order: 1,
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
   {
     question: "Do you provide insurance?",
@@ -304,7 +316,7 @@ db.faqs.insertMany([
     is_published: true,
     order: 2,
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
   {
     question: "Can you deliver the car to my location?",
@@ -313,14 +325,15 @@ db.faqs.insertMany([
     is_published: true,
     order: 3,
     createdAt: new Date(),
-    updatedAt: new Date()
-  }
-])
+    updatedAt: new Date(),
+  },
+]);
 ```
 
 ---
 
 ### 6. **testimonials** Collection (Optional)
+
 Customer testimonials and reviews.
 
 ```javascript
@@ -341,12 +354,14 @@ Customer testimonials and reviews.
 ## 🎛️ Admin Panel Features
 
 ### Dashboard Tab
+
 - Total cars count
 - Active bookings count
 - Pending contact queries count
 - Revenue overview
 
 ### Cars Management
+
 - **Add Car:** Create new car listings
 - **Edit Car:** Update car details
 - **Delete Car:** Remove listings
@@ -355,6 +370,7 @@ Customer testimonials and reviews.
 - Bulk actions available
 
 ### Blogs Management
+
 - **Add Blog:** Create new blog posts
 - **Edit Blog:** Update blog content
 - **Delete Blog:** Remove blogs
@@ -362,18 +378,21 @@ Customer testimonials and reviews.
 - Markdown editor support
 
 ### Bookings Management
+
 - View all customer bookings
 - **Update Status:** pending → confirmed → completed
 - Filter by status
 - Delete bookings
 
 ### Contact Queries Management
+
 - View all contact form submissions
 - **Mark as Read:** Track viewed queries
 - **WhatsApp Integration:** Direct WhatsApp links to customer
 - Delete queries
 
 ### FAQs Management
+
 - **Add FAQ:** Create new Q&A
 - **Edit FAQ:** Update answers
 - **Delete FAQ:** Remove FAQs
@@ -385,6 +404,7 @@ Customer testimonials and reviews.
 ## 🔗 API Endpoints
 
 ### Cars API
+
 ```
 GET    /api/cars              - Get all cars
 POST   /api/cars              - Create car
@@ -394,6 +414,7 @@ DELETE /api/cars/:id          - Delete car
 ```
 
 ### Blogs API
+
 ```
 GET    /api/blogs             - Get all blogs
 POST   /api/blogs             - Create blog
@@ -403,6 +424,7 @@ DELETE /api/blogs/:id         - Delete blog
 ```
 
 ### Bookings API
+
 ```
 GET    /api/bookings          - Get all bookings
 POST   /api/bookings          - Create booking
@@ -411,6 +433,7 @@ DELETE /api/bookings/:id      - Delete booking
 ```
 
 ### Contact Queries API
+
 ```
 GET    /api/contact_queries   - Get all queries
 POST   /api/contact_queries   - Create query (from contact form)
@@ -419,6 +442,7 @@ DELETE /api/contact_queries/:id - Delete query
 ```
 
 ### FAQs API
+
 ```
 GET    /api/faqs              - Get all FAQs
 POST   /api/faqs              - Create FAQ
@@ -435,21 +459,23 @@ DELETE /api/faqs/:id          - Delete FAQ
 When a customer submits a contact query or inquiry:
 
 1. **Pre-formatted WhatsApp Link:**
+
    ```
-   https://wa.me/918827814985?text=Hi%20SWAG%20team%2C%20[message]
+   https://wa.me/+919289084361?text=Hi%20SWAG%20team%2C%20[message]
    ```
 
 2. **Admin Panel WhatsApp Button:**
    - Shows a "Message on WhatsApp" button for each query
    - Opens WhatsApp chat directly with pre-filled message
 
-3. **Contact Number:** `+91 88278 14985`
+3. **Contact Number:** `+91 9289084361`
 
 ---
 
 ## 🚀 MongoDB Setup Instructions
 
 ### 1. Create Database & Collections
+
 ```bash
 # Connect to MongoDB
 mongo "mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mongodb.net/swag_wheels_db"
@@ -471,17 +497,19 @@ db.faqs.createIndex({ "is_published": 1, "order": 1 })
 ```
 
 ### 2. Insert Sample Data
+
 Use the sample data provided above for each collection.
 
 ### 3. Create Admin User
+
 ```javascript
 // Backend: Create admin in your authentication system
 db.admins.insertOne({
   email: "admin@swag.com",
   password: "hashed_password_here", // Use bcrypt
   role: "admin",
-  createdAt: new Date()
-})
+  createdAt: new Date(),
+});
 ```
 
 ---
@@ -489,6 +517,7 @@ db.admins.insertOne({
 ## 🔐 Environment Variables
 
 Add to `.env` in your backend:
+
 ```
 MONGODB_URI=mongodb+srv://princekushwahfzd_db_user:8CXhbT5HEvpuPoWc@princecluster.0dtjwgi.mongodb.net/swag_wheels_db
 DATABASE_NAME=swag_wheels_db
@@ -499,6 +528,7 @@ PORT=5005
 ```
 
 Add to `.env` in your frontend:
+
 ```
 VITE_BACKEND_URL=http://localhost:5005
 ```
@@ -511,7 +541,7 @@ VITE_BACKEND_URL=http://localhost:5005
 - ✅ Admin dashboard with full CRUD operations
 - ✅ Hide/unhide functionality for cars and blogs
 - ✅ Contact queries with WhatsApp integration (no API)
-- ✅ Direct phone messaging (+91 88278 14985)
+- ✅ Direct phone messaging (+91 9289084361)
 - ✅ Booking management with status tracking
 - ✅ FAQ management with publish/unpublish
 - ✅ No WhatsApp API calls - direct messaging only
@@ -523,16 +553,19 @@ VITE_BACKEND_URL=http://localhost:5005
 ## 🛠️ Troubleshooting
 
 ### MongoDB Connection Issues
+
 - Verify connection string is correct
 - Check IP whitelist in MongoDB Atlas
 - Ensure credentials are correct
 
 ### Admin Login Not Working
+
 - Clear browser cache
 - Check JWT token in localStorage
 - Verify admin credentials in database
 
 ### API Endpoints Not Responding
+
 - Check backend server is running on port 5005
 - Verify MongoDB connection is active
 - Check CORS settings
@@ -541,8 +574,8 @@ VITE_BACKEND_URL=http://localhost:5005
 
 ## 📞 Support Contact
 
-**Phone:** +91 88278 14985  
-**WhatsApp:** [Direct messaging via app](https://wa.me/918827814985)
+**Phone:** +91 9289084361  
+**WhatsApp:** [Direct messaging via app](https://wa.me/+919289084361)
 
 ---
 
