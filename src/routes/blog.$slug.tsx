@@ -89,7 +89,8 @@ function BlogDetailsPage() {
     );
   }
 
-  const coverImg = post.image || post.cover_image || heroImg;
+  const rawCoverImg = post.image || post.cover_image || "";
+  const coverImg = rawCoverImg && !rawCoverImg.includes('localhost') ? rawCoverImg : heroImg;
   const mins = readingTime(post.content || "");
 
   const share = (platform: string) => {
@@ -222,7 +223,7 @@ function BlogDetailsPage() {
               <Link key={b._id || b.id} to="/blog/$slug" params={{ slug: b.slug }} className="car-card group block">
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
-                    src={b.image || b.cover_image || heroImg}
+                    src={(b.image || b.cover_image || "").includes('localhost') ? heroImg : (b.image || b.cover_image || heroImg)}
                     alt={b.title}
                     loading="lazy"
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"

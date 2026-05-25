@@ -5,6 +5,7 @@ import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Star, Shield, Zap, 
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { CarCard } from "@/components/cars/CarCard";
 import heroImg from "@/assets/hero-car.jpg";
+import { resolveBlogImage } from "@/lib/car-images";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
@@ -439,7 +440,7 @@ function BlogPreview() {
               <Link to="/blog/$slug" params={{ slug: b.slug }} className="block">
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
-                    src={b.image || b.cover_image || heroImg}
+                    src={resolveBlogImage(b.image || b.cover_image)}
                     alt={b.title}
                     loading="lazy"
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"

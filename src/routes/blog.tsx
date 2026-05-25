@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Calendar, ArrowRight } from "lucide-react";
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { formatDate } from "@/lib/format";
+import { resolveBlogImage, FALLBACK_HERO } from "@/lib/car-images";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
@@ -61,7 +62,7 @@ function BlogPage() {
               {data?.map((b: any) => (
                 <Link key={b._id} to="/blog/$slug" params={{ slug: b.slug }} className="car-card group block">
                   <div className="aspect-[16/10] overflow-hidden">
-                    <img src={b.image} alt={b.title} loading="lazy" className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <img src={resolveBlogImage(b.image)} alt={b.title} loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = FALLBACK_HERO; }} className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
                   <div className="p-5">
                     <div className="flex items-center justify-between text-xs mb-3">

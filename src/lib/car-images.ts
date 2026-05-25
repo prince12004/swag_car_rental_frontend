@@ -20,9 +20,18 @@ const MAP: Record<string, string> = {
 
 export function resolveCarImage(path?: string | null): string {
   if (!path) return hero;
-  // Strip leading /src/assets/ or /assets/
+  // base64 data URLs are valid — use directly
+  if (path.startsWith('data:')) return path;
+  if (path.includes('localhost')) return hero;
   const filename = path.replace(/^.*\//, "");
   return MAP[filename] ?? path;
+}
+
+export function resolveBlogImage(path?: string | null): string {
+  if (!path) return hero;
+  if (path.startsWith('data:')) return path;
+  if (path.includes('localhost')) return hero;
+  return path;
 }
 
 export const FALLBACK_HERO = hero;
