@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from '@tanstack/react-router';
 import { Loader2, AlertCircle, Lock, Mail } from 'lucide-react';
 import { toast } from 'sonner';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 export default function AdminLoginPage() {
-    const navigate = useNavigate();
     const [email, setEmail] = useState('admin@swagcarrental.com');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -33,10 +31,10 @@ export default function AdminLoginPage() {
             localStorage.setItem('adminToken', data.token);
             localStorage.setItem('adminEmail', data.admin.email);
 
+            // auth-change triggers AuthProvider to update isAdmin,
+            // then AdminLoginComponent's useEffect navigates to /admin-panel
             window.dispatchEvent(new Event('auth-change'));
-
             toast.success('Login successful!');
-            navigate({ to: '/admin-panel' });
         } catch (err: any) {
             setError(err.message);
             toast.error(err.message);
