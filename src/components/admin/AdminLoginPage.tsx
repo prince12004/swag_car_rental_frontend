@@ -7,7 +7,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental
 
 export default function AdminLoginPage() {
     const navigate = useNavigate();
-    const [email, setEmail] = useState('admin@swagwheels.com');
+    const [email, setEmail] = useState('admin@swagcarrental.com');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -33,7 +33,6 @@ export default function AdminLoginPage() {
             localStorage.setItem('adminToken', data.token);
             localStorage.setItem('adminEmail', data.admin.email);
 
-            // Dispatch custom event to notify auth context
             window.dispatchEvent(new Event('auth-change'));
 
             toast.success('Login successful!');
@@ -47,68 +46,70 @@ export default function AdminLoginPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-background grid-bg flex items-center justify-center p-4">
             <div className="w-full max-w-md">
-                {/* Logo/Header */}
-                <div className="text-center mb-12">
-                    <div className="inline-flex items-center justify-center h-14 w-14 bg-blue-600 rounded-lg mb-4">
-                        <Lock className="h-7 w-7 text-white" />
+                {/* Header */}
+                <div className="text-center mb-10">
+                    <div className="inline-flex items-center justify-center h-14 w-14 rounded-xl bg-primary mb-5 shadow-[0_4px_20px_oklch(0.58_0.18_155/0.35)]">
+                        <Lock className="h-7 w-7 text-primary-foreground" />
                     </div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Swag Car Rental Admin</h1>
-                    <p className="text-slate-400">Management Dashboard</p>
+                    <h1 className="font-display text-3xl font-black tracking-tight">
+                        <span className="text-gradient-brand">SWAG</span>{' '}
+                        <span className="text-foreground">Admin</span>
+                    </h1>
+                    <p className="label-display text-muted-foreground mt-2">Management Dashboard</p>
                 </div>
 
-                {/* Login Card */}
-                <div className="bg-slate-900 border border-slate-700 rounded-xl shadow-2xl p-8 mb-6">
+                {/* Card */}
+                <div className="glass-strong rounded-2xl p-8 mb-6">
                     <form onSubmit={handleLogin} className="space-y-5">
                         {error && (
-                            <div className="flex items-center gap-3 p-4 bg-red-900/20 border border-red-700/50 rounded-lg">
-                                <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0" />
-                                <p className="text-sm text-red-300">{error}</p>
+                            <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/30 rounded-lg">
+                                <AlertCircle className="h-5 w-5 text-destructive shrink-0" />
+                                <p className="text-sm text-destructive">{error}</p>
                             </div>
                         )}
 
-                        {/* Email Field */}
-                        <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
+                        {/* Email */}
+                        <div className="space-y-1.5">
+                            <label className="label-display text-foreground/70 block">
                                 Email Address
                             </label>
                             <div className="relative">
-                                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-500" />
+                                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                 <input
                                     type="email"
                                     placeholder="admin@swagwheels.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-2.5 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                    className="panel-input pl-10"
                                     required
                                 />
                             </div>
                         </div>
 
-                        {/* Password Field */}
-                        <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
+                        {/* Password */}
+                        <div className="space-y-1.5">
+                            <label className="label-display text-foreground/70 block">
                                 Password
                             </label>
                             <div className="relative">
-                                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-500" />
+                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                 <input
                                     type="password"
                                     placeholder="Enter your password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-2.5 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                    className="panel-input pl-10"
                                     required
                                 />
                             </div>
                         </div>
 
-                        {/* Submit Button */}
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
+                            className="btn-neon w-full disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {loading ? (
                                 <>
@@ -122,18 +123,8 @@ export default function AdminLoginPage() {
                     </form>
                 </div>
 
-                {/* Demo Credentials Info */}
-                {/* <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-                    <p className="text-xs font-semibold text-slate-300 mb-2">Demo Credentials</p>
-                    <div className="text-xs text-slate-400 space-y-1">
-                        <p><span className="text-slate-300">Email:</span> admin@swagwheels.com</p>
-                        <p><span className="text-slate-300">Password:</span> admin123456</p>
-                    </div>
-                </div> */}
-
-                {/* Back Link */}
-                <div className="text-center mt-6">
-                    <a href="/" className="text-sm text-slate-400 hover:text-blue-400 transition">
+                <div className="text-center">
+                    <a href="/" className="label-display text-muted-foreground hover:text-primary transition-colors">
                         ← Back to website
                     </a>
                 </div>

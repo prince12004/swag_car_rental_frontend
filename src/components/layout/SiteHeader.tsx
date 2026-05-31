@@ -41,7 +41,7 @@ export function SiteHeader() {
             <img
               src={logoImg}
               alt="SWAG Car Rental"
-              className="h-11 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_18px_oklch(0.88_0.32_142/0.35)]"
+              className="h-11 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
             />
           </Link>
 

@@ -105,7 +105,7 @@ export function BookingForm({
           className={INPUT_CLS}
         >
           <option value="">Select pickup location</option>
-          <option value="Office Delhi">Office Delhi</option>
+          <option value="Delhi"> Delhi</option>
           <option value="Noida">Noida</option>
           <option value="Gurgaon">Gurgaon</option>
         </select>

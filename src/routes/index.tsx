@@ -38,14 +38,10 @@ function Hero() {
   return (
     <section className="relative -mt-24 min-h-[100vh] overflow-hidden grid-bg">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="Neon supercar in cyberpunk garage" className="absolute inset-0 h-full w-full object-cover opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
+        <img src={heroImg} alt="Premium supercar" className="absolute inset-0 h-full w-full object-cover opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
       </div>
-
-      {/* Neon orbs */}
-      <div className="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-primary/20 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-accent/20 blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 pt-32 lg:pt-40 pb-24 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center min-h-[100vh]">
         <div className="space-y-6 animate-fade-in-up">
@@ -53,12 +49,12 @@ function Hero() {
             <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs label-display text-primary">Now Booking 2025 Models</span>
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight">
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight text-white">
             Drive Your<br />
             <span className="text-gradient-brand">SWAG</span>
-            <span className="text-foreground">.</span>
+            <span className="text-white">.</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          <p className="text-lg text-white/80 max-w-xl leading-relaxed">
             Premium supercars, luxury sedans, and electric SUVs — delivered to your door
             with concierge service and full insurance included.
           </p>
@@ -81,7 +77,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60">
         <ChevronDown className="h-6 w-6 animate-bounce" />
       </div>
     </section>
@@ -91,8 +87,8 @@ function Hero() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <div className="font-display text-3xl font-black text-gradient-brand">{value}</div>
-      <div className="text-xs label-display text-muted-foreground mt-1">{label}</div>
+      <div className="font-display text-3xl font-black text-white">{value}</div>
+      <div className="text-xs label-display text-white/60 mt-1">{label}</div>
     </div>
   );
 }
@@ -135,7 +131,7 @@ function SearchPanel() {
             className="panel-input"
           >
             <option value="">Select location</option>
-            <option value="Office Delhi">Office Delhi</option>
+            <option value="Delhi">Delhi</option>
             <option value="Noida">Noida</option>
             <option value="Gurgaon">Gurgaon</option>
           </select>

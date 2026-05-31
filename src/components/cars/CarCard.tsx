@@ -53,7 +53,7 @@ export function CarCard({ car }: { car: Car }) {
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             <div className="absolute top-3 left-3 flex gap-2">
               {category && (
                 <span className="px-2.5 py-1 rounded-md bg-primary/90 text-primary-foreground text-[10px] font-display uppercase tracking-wider font-bold">

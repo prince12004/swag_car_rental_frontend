@@ -19,7 +19,7 @@ export function SiteFooter() {
       <div className="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-4 md:grid-cols-2 gap-10">
         <div>
           <Link to="/" className="inline-flex items-center mb-4">
-            <img src={logoImg} alt="SWAG Car Rental" className="h-16 w-auto object-contain drop-shadow-[0_0_22px_oklch(0.88_0.32_142/0.4)]" />
+            <img src={logoImg} alt="SWAG Car Rental" className="h-16 w-auto object-contain" />
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Premium supercars, luxury sedans, and electric SUVs delivered to your door.

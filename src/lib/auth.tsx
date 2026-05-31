@@ -10,7 +10,7 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue>({
   isAdmin: false,
-  loading: true,
+  loading: false,
   token: null,
   signOut: () => { },
   refreshAuth: () => { },
@@ -21,7 +21,7 @@ const AUTH_CHANGE_EVENT = "auth-change";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [token, setToken] = useState<string | null>(null);
 
   const checkAuth = () => {

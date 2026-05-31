@@ -86,7 +86,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
   }
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head><HeadContent /></head>
       <body>
         {children}
@@ -102,7 +102,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <Outlet />
-        <Toaster theme="dark" position="top-right" richColors />
+        <Toaster theme="light" position="top-right" richColors />
       </AuthProvider>
     </QueryClientProvider>
   );
