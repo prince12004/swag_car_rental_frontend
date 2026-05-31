@@ -136,49 +136,49 @@ export function ContactsManagement() {
             {/* Stats Cards */}
             {stats && (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
-                            <div className="text-3xl font-bold text-white">{stats.total}</div>
-                            <p className="text-xs text-slate-400 mt-1">Total Queries</p>
+                            <div className="text-3xl font-bold text-foreground">{stats.total}</div>
+                            <p className="text-xs text-muted-foreground mt-1">Total Queries</p>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
                             <div className="text-3xl font-bold text-red-400">{stats.new}</div>
-                            <p className="text-xs text-slate-400 mt-1">New</p>
+                            <p className="text-xs text-muted-foreground mt-1">New</p>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
                             <div className="text-3xl font-bold text-yellow-400">{stats.read}</div>
-                            <p className="text-xs text-slate-400 mt-1">Read</p>
+                            <p className="text-xs text-muted-foreground mt-1">Read</p>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
                             <div className="text-3xl font-bold text-green-400">{stats.replied}</div>
-                            <p className="text-xs text-slate-400 mt-1">Replied</p>
+                            <p className="text-xs text-muted-foreground mt-1">Replied</p>
                         </CardContent>
                     </Card>
                 </div>
             )}
 
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+            <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                 <CardHeader className="pb-4">
                     <div className="flex items-center justify-between">
                         <div>
-                            <CardTitle className="text-2xl text-white">Contact Queries</CardTitle>
-                            <CardDescription className="text-slate-300 mt-1">Manage customer inquiries and respond via WhatsApp</CardDescription>
+                            <CardTitle className="text-2xl text-foreground">Contact Queries</CardTitle>
+                            <CardDescription className="text-foreground/70 mt-1">Manage customer inquiries and respond via WhatsApp</CardDescription>
                         </div>
                         <Select value={filter} onValueChange={setFilter}>
-                            <SelectTrigger className="w-[180px] bg-slate-700 border-white/10 text-white">
+                            <SelectTrigger className="w-[180px] bg-surface-2 border-border text-foreground">
                                 <SelectValue placeholder="Filter by status" />
                             </SelectTrigger>
-                            <SelectContent className="bg-slate-700 border-white/10">
-                                <SelectItem value="all" className="text-slate-900">All Queries</SelectItem>
-                                <SelectItem value="new" className="text-slate-900">New</SelectItem>
-                                <SelectItem value="read" className="text-slate-900">Read</SelectItem>
-                                <SelectItem value="replied" className="text-slate-900">Replied</SelectItem>
+                            <SelectContent className="bg-surface-2 border-border">
+                                <SelectItem value="all" className="text-foreground">All Queries</SelectItem>
+                                <SelectItem value="new" className="text-foreground">New</SelectItem>
+                                <SelectItem value="read" className="text-foreground">Read</SelectItem>
+                                <SelectItem value="replied" className="text-foreground">Replied</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
@@ -192,26 +192,26 @@ export function ContactsManagement() {
                 </Alert>
             )}
 
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+            <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                 <CardContent className="pt-6">
                     {loading ? (
                         <div className="text-center py-16">
                             <div className="inline-flex items-center gap-3">
-                                <div className="h-6 w-6 rounded-full border-2 border-blue-500 border-t-cyan-500 animate-spin"></div>
-                                <p className="text-slate-300">Loading queries...</p>
+                                <div className="h-6 w-6 rounded-full border-2 border-primary border-t-cyan-500 animate-spin"></div>
+                                <p className="text-foreground/70">Loading queries...</p>
                             </div>
                         </div>
                     ) : queries && Array.isArray(queries) && queries.length > 0 ? (
                         <div className="space-y-4">
                             {queries.map((query) => (
-                                <div key={query._id} className="bg-white/5 border border-white/10 rounded-lg p-4 space-y-3 hover:bg-white/10 transition-colors">
+                                <div key={query._id} className="bg-white/5 border border-border rounded-lg p-4 space-y-3 hover:bg-white/10 transition-colors">
                                     <div className="flex items-start justify-between">
                                         <div>
-                                            <p className="font-semibold text-white">{query.name}</p>
-                                            <p className="text-sm text-slate-400">{query.email} | {query.phone}</p>
+                                            <p className="font-semibold text-foreground">{query.name}</p>
+                                            <p className="text-sm text-muted-foreground">{query.email} | {query.phone}</p>
                                         </div>
                                         <Badge className={`${query.status === 'replied' ? 'bg-green-500/20 text-green-300 border border-green-500/30' :
-                                            query.status === 'read' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' :
+                                            query.status === 'read' ? 'bg-primary/20 text-primary border border-primary/30' :
                                                 'bg-red-500/20 text-red-300 border border-red-500/30'
                                             }`}>
                                             {query.status.charAt(0).toUpperCase() + query.status.slice(1)}
@@ -219,8 +219,8 @@ export function ContactsManagement() {
                                     </div>
 
                                     <div>
-                                        <p className="text-sm font-medium text-slate-200">{query.subject}</p>
-                                        <p className="text-sm text-slate-400 mt-2">{query.message}</p>
+                                        <p className="text-sm font-medium text-foreground/80">{query.subject}</p>
+                                        <p className="text-sm text-muted-foreground mt-2">{query.message}</p>
                                     </div>
 
                                     {query.adminReply && (
@@ -240,20 +240,20 @@ export function ContactsManagement() {
                                                     {query.adminReply ? 'Edit Reply' : 'Reply'}
                                                 </Button>
                                             </DialogTrigger>
-                                            <DialogContent className="bg-slate-800 border-white/10">
+                                            <DialogContent className="bg-surface-2 border-border">
                                                 <DialogHeader>
-                                                    <DialogTitle className="text-white">Reply to {query.name}</DialogTitle>
+                                                    <DialogTitle className="text-foreground">Reply to {query.name}</DialogTitle>
                                                 </DialogHeader>
                                                 <div className="space-y-3">
                                                     <Textarea
                                                         placeholder="Type your reply... (Will be sent via WhatsApp)"
                                                         value={replyText}
                                                         onChange={(e) => setReplyText(e.target.value)}
-                                                        className="min-h-[150px] bg-slate-700 border-white/10 text-white placeholder:text-slate-400"
+                                                        className="min-h-[150px] bg-surface-2 border-border text-foreground placeholder:text-muted-foreground"
                                                         defaultValue={query.adminReply || ''}
                                                     />
                                                     <Button
-                                                        className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0"
+                                                        className="w-full btn-neon text-foreground border-0"
                                                         onClick={() => handleReply(query._id)}
                                                     >
                                                         Send via WhatsApp
@@ -271,7 +271,7 @@ export function ContactsManagement() {
                                         </Button>
                                     </div>
 
-                                    <p className="text-xs text-slate-500 pt-2 border-t border-white/5">
+                                    <p className="text-xs text-muted-foreground pt-2 border-t border-white/5">
                                         Received: {new Date(query.createdAt).toLocaleString()}
                                     </p>
                                 </div>
@@ -279,11 +279,11 @@ export function ContactsManagement() {
                         </div>
                     ) : (
                         <div className="text-center py-16">
-                            <AlertCircle className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-                            <p className="text-slate-300 mb-4 text-lg">No queries found</p>
+                            <AlertCircle className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                            <p className="text-foreground/70 mb-4 text-lg">No queries found</p>
                             <Button
                                 onClick={() => fetchQueries()}
-                                className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0"
+                                className="btn-neon text-foreground border-0"
                             >
                                 Refresh
                             </Button>

@@ -215,11 +215,11 @@ export function BlogsManagement() {
         if (!blogs || !Array.isArray(blogs) || blogs.length === 0) {
             return (
                 <div className="text-center py-16">
-                    <AlertCircle className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-                    <p className="text-slate-300 mb-4 text-lg">No blogs found</p>
+                    <AlertCircle className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                    <p className="text-foreground/70 mb-4 text-lg">No blogs found</p>
                     <Button
                         onClick={() => fetchBlogs()}
-                        className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0"
+                        className="btn-neon text-foreground border-0"
                     >
                         Refresh
                     </Button>
@@ -230,22 +230,22 @@ export function BlogsManagement() {
         try {
             const blogsList = (blogs as Blog[]).filter(blog => blog && blog._id).map((blog: Blog) => (
                 <TableRow key={blog._id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                    <TableCell className="font-medium text-white max-w-xs truncate">{blog.title || 'N/A'}</TableCell>
-                    <TableCell className="text-slate-300 capitalize">{blog.category || 'N/A'}</TableCell>
-                    <TableCell className="text-slate-300">{blog.views?.toLocaleString() || 0}</TableCell>
+                    <TableCell className="font-medium text-foreground max-w-xs truncate">{blog.title || 'N/A'}</TableCell>
+                    <TableCell className="text-foreground/70 capitalize">{blog.category || 'N/A'}</TableCell>
+                    <TableCell className="text-foreground/70">{blog.views?.toLocaleString() || 0}</TableCell>
                     <TableCell>
                         <span className={`px-3 py-1 rounded-full text-xs font-medium inline-flex items-center gap-1 ${blog.published ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30'}`}>
                             {blog.published ? <Check className="h-3 w-3" /> : '○'}
                             {blog.published ? 'Published' : 'Draft'}
                         </span>
                     </TableCell>
-                    <TableCell className="text-slate-300 text-sm">{new Date(blog.createdAt).toLocaleDateString()}</TableCell>
+                    <TableCell className="text-foreground/70 text-sm">{new Date(blog.createdAt).toLocaleDateString()}</TableCell>
                     <TableCell className="flex gap-2">
                         <Button
                             size="sm"
                             variant="outline"
                             onClick={() => handleEditBlog(blog)}
-                            className="bg-blue-500/10 border-blue-500/30 text-blue-300 hover:bg-blue-500/20 hover:border-blue-500/50"
+                            className="bg-primary/10 border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50"
                         >
                             <Edit className="h-4 w-4" />
                         </Button>
@@ -268,16 +268,16 @@ export function BlogsManagement() {
             ));
 
             return (
-                <div className="overflow-x-auto rounded-lg border border-white/10">
+                <div className="overflow-x-auto rounded-lg border border-border">
                     <Table>
-                        <TableHeader className="bg-white/5 border-b border-white/10">
+                        <TableHeader className="bg-white/5 border-b border-border">
                             <TableRow className="hover:bg-transparent">
-                                <TableHead className="text-slate-300 font-semibold">Title</TableHead>
-                                <TableHead className="text-slate-300 font-semibold">Category</TableHead>
-                                <TableHead className="text-slate-300 font-semibold">Views</TableHead>
-                                <TableHead className="text-slate-300 font-semibold">Status</TableHead>
-                                <TableHead className="text-slate-300 font-semibold">Created</TableHead>
-                                <TableHead className="text-slate-300 font-semibold">Actions</TableHead>
+                                <TableHead className="text-foreground/70 font-semibold">Title</TableHead>
+                                <TableHead className="text-foreground/70 font-semibold">Category</TableHead>
+                                <TableHead className="text-foreground/70 font-semibold">Views</TableHead>
+                                <TableHead className="text-foreground/70 font-semibold">Status</TableHead>
+                                <TableHead className="text-foreground/70 font-semibold">Created</TableHead>
+                                <TableHead className="text-foreground/70 font-semibold">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -299,17 +299,17 @@ export function BlogsManagement() {
 
     return (
         <div className="space-y-6">
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+            <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                 <CardHeader className="pb-4">
                     <div className="flex items-center justify-between">
                         <div>
-                            <CardTitle className="text-2xl text-white">Blog Management</CardTitle>
-                            <CardDescription className="text-slate-300 mt-1">Create, edit, and manage blog posts</CardDescription>
+                            <CardTitle className="text-2xl text-foreground">Blog Management</CardTitle>
+                            <CardDescription className="text-foreground/70 mt-1">Create, edit, and manage blog posts</CardDescription>
                         </div>
                         <Dialog open={showDialog} onOpenChange={setShowDialog}>
                             <DialogTrigger asChild>
                                 <Button
-                                    className="gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0"
+                                    className="gap-2 btn-neon text-foreground border-0"
                                     onClick={() => {
                                         setEditingId(null);
                                         setFormData({
@@ -323,16 +323,16 @@ export function BlogsManagement() {
                                     New Blog
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-slate-800 border-white/10">
+                            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-surface-2 border-border">
                                 <DialogHeader>
-                                    <DialogTitle className="text-white text-xl">{editingId ? 'Edit Blog' : 'Create New Blog'}</DialogTitle>
+                                    <DialogTitle className="text-foreground text-xl">{editingId ? 'Edit Blog' : 'Create New Blog'}</DialogTitle>
                                 </DialogHeader>
                                 <form onSubmit={handleAddBlog} className="space-y-4">
                                     <Input
                                         placeholder="Blog Title"
                                         value={formData.title}
                                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                                        className="bg-slate-700 border-white/10 text-white placeholder:text-slate-400"
+                                        className="bg-surface-2 border-border text-foreground placeholder:text-muted-foreground"
                                         required
                                     />
 
@@ -340,14 +340,14 @@ export function BlogsManagement() {
                                         placeholder="Excerpt (Summary)"
                                         value={formData.excerpt}
                                         onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                                        className="bg-slate-700 border-white/10 text-white placeholder:text-slate-400"
+                                        className="bg-surface-2 border-border text-foreground placeholder:text-muted-foreground"
                                         required
                                     />
 
                                     <div className="space-y-2">
-                                        <p className="text-sm text-slate-300 font-medium">Cover Image</p>
+                                        <p className="text-sm text-foreground/70 font-medium">Cover Image</p>
                                         {/* Direct label→input upload — most reliable */}
-                                        <label className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl border-2 border-dashed cursor-pointer transition-all select-none ${uploadingImage ? 'border-blue-400/40 opacity-60 cursor-not-allowed' : 'border-white/20 hover:border-blue-400/70 hover:bg-slate-700'} bg-slate-700/50`}>
+                                        <label className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl border-2 border-dashed cursor-pointer transition-all select-none ${uploadingImage ? 'border-primary/40 opacity-60 cursor-not-allowed' : 'border-white/20 hover:border-primary/70 hover:bg-surface-2'} bg-surface-2/50`}>
                                             <input
                                                 ref={fileInputRef}
                                                 type="file"
@@ -357,21 +357,21 @@ export function BlogsManagement() {
                                                 onChange={handleImageUpload}
                                             />
                                             {uploadingImage
-                                                ? <Loader2 className="h-5 w-5 text-blue-400 animate-spin shrink-0" />
-                                                : <Upload className="h-5 w-5 text-blue-400 shrink-0" />
+                                                ? <Loader2 className="h-5 w-5 text-primary animate-spin shrink-0" />
+                                                : <Upload className="h-5 w-5 text-primary shrink-0" />
                                             }
                                             <div>
-                                                <p className="text-sm font-semibold text-slate-200">
+                                                <p className="text-sm font-semibold text-foreground/80">
                                                     {uploadingImage ? 'Uploading…' : 'Choose image file'}
                                                 </p>
-                                                <p className="text-xs text-slate-500">PNG, JPG, WEBP — max 5 MB</p>
+                                                <p className="text-xs text-muted-foreground">PNG, JPG, WEBP — max 5 MB</p>
                                             </div>
                                         </label>
                                         {formData.image && (
-                                            <div className="relative rounded-xl overflow-hidden border border-white/10">
+                                            <div className="relative rounded-xl overflow-hidden border border-border">
                                                 <img src={formData.image} alt="preview" className="w-full h-44 object-cover" onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
                                                 <button type="button" onClick={() => setFormData(f => ({ ...f, image: '' }))} className="absolute top-2 right-2 h-7 w-7 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition-colors">
-                                                    <X className="h-3.5 w-3.5 text-white" />
+                                                    <X className="h-3.5 w-3.5 text-foreground" />
                                                 </button>
                                             </div>
                                         )}
@@ -381,21 +381,21 @@ export function BlogsManagement() {
                                         placeholder="Blog Content"
                                         value={formData.content}
                                         onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                                        className="min-h-[200px] bg-slate-700 border-white/10 text-white placeholder:text-slate-400"
+                                        className="min-h-[200px] bg-surface-2 border-border text-foreground placeholder:text-muted-foreground"
                                         required
                                     />
 
                                     <div className="grid grid-cols-2 gap-4">
                                         <Select value={formData.category} onValueChange={(value) => setFormData({ ...formData, category: value })}>
-                                            <SelectTrigger className="bg-slate-700 border-white/10 text-white">
+                                            <SelectTrigger className="bg-surface-2 border-border text-foreground">
                                                 <SelectValue placeholder="Category" />
                                             </SelectTrigger>
-                                            <SelectContent className="bg-slate-700 border-white/10">
-                                                <SelectItem value="travel" className="text-slate-900">Travel</SelectItem>
-                                                <SelectItem value="tips" className="text-slate-900">Tips</SelectItem>
-                                                <SelectItem value="news" className="text-slate-900">News</SelectItem>
-                                                <SelectItem value="lifestyle" className="text-slate-900">Lifestyle</SelectItem>
-                                                <SelectItem value="other" className="text-slate-900">Other</SelectItem>
+                                            <SelectContent className="bg-surface-2 border-border">
+                                                <SelectItem value="travel" className="text-foreground">Travel</SelectItem>
+                                                <SelectItem value="tips" className="text-foreground">Tips</SelectItem>
+                                                <SelectItem value="news" className="text-foreground">News</SelectItem>
+                                                <SelectItem value="lifestyle" className="text-foreground">Lifestyle</SelectItem>
+                                                <SelectItem value="other" className="text-foreground">Other</SelectItem>
                                             </SelectContent>
                                         </Select>
 
@@ -403,11 +403,11 @@ export function BlogsManagement() {
                                             placeholder="Tags (comma separated)"
                                             value={formData.tags}
                                             onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                                            className="bg-slate-700 border-white/10 text-white placeholder:text-slate-400"
+                                            className="bg-surface-2 border-border text-foreground placeholder:text-muted-foreground"
                                         />
                                     </div>
 
-                                    <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0">
+                                    <Button type="submit" className="w-full btn-neon text-foreground border-0">
                                         {editingId ? 'Update Blog' : 'Create Blog'}
                                     </Button>
                                 </form>
@@ -431,13 +431,13 @@ export function BlogsManagement() {
                 </Alert>
             )}
 
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+            <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                 <CardContent className="pt-6">
                     {loading ? (
                         <div className="text-center py-16">
                             <div className="inline-flex items-center gap-3">
-                                <div className="h-6 w-6 rounded-full border-2 border-blue-500 border-t-cyan-500 animate-spin"></div>
-                                <p className="text-slate-300">Loading blogs...</p>
+                                <div className="h-6 w-6 rounded-full border-2 border-primary border-t-cyan-500 animate-spin"></div>
+                                <p className="text-foreground/70">Loading blogs...</p>
                             </div>
                         </div>
                     ) : (

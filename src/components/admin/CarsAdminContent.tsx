@@ -198,19 +198,19 @@ export default function CarsAdminContent() {
         }
     };
 
-    const inputCls = "w-full bg-slate-800/60 border border-slate-600/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500";
+    const inputCls = "w-full bg-surface-2/60 border border-border/50 rounded-lg px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary";
 
     return (
         <div>
             {/* Header */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                 <div>
-                    <h2 className="text-3xl font-bold text-white mb-2">Cars Management</h2>
-                    <p className="text-slate-400">Manage your vehicle fleet</p>
+                    <h2 className="text-3xl font-bold text-foreground mb-2">Cars Management</h2>
+                    <p className="text-muted-foreground">Manage your vehicle fleet</p>
                 </div>
                 <button
                     onClick={openAddForm}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-lg transition-all duration-200 shadow-lg shadow-blue-600/20 font-medium"
+                    className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg transition-all duration-200 shadow-lg  font-medium"
                 >
                     <Plus className="h-5 w-5" />
                     Add Car
@@ -219,13 +219,13 @@ export default function CarsAdminContent() {
 
             {/* Add / Edit Form */}
             {showForm && (
-                <div className="mb-8 bg-gradient-to-br from-slate-900/80 to-slate-800/40 border border-slate-600/50 rounded-xl p-6 backdrop-blur-sm shadow-xl">
+                <div className="mb-8 bg-gradient-to-br from-surface/80 to-surface/40 border border-border/50 rounded-xl p-6 backdrop-blur-sm shadow-xl">
                     <div className="flex items-center justify-between mb-5">
-                        <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                            <Car className="h-5 w-5 text-blue-400" />
+                        <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
+                            <Car className="h-5 w-5 text-primary" />
                             {editingId ? 'Edit Car' : 'Add New Car'}
                         </h3>
-                        <button onClick={closeForm} className="p-1.5 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-white transition-colors">
+                        <button onClick={closeForm} className="p-1.5 rounded-lg hover:bg-surface-2 text-muted-foreground hover:text-white transition-colors">
                             <X className="h-5 w-5" />
                         </button>
                     </div>
@@ -241,11 +241,11 @@ export default function CarsAdminContent() {
                         {/* Row 1 */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Car Name *</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Car Name *</label>
                                 <input className={inputCls} placeholder="e.g. Fortuner" value={formData.name} onChange={set('name')} required />
                             </div>
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Brand *</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Brand *</label>
                                 <input className={inputCls} placeholder="e.g. Toyota" value={formData.brand} onChange={set('brand')} required />
                             </div>
                         </div>
@@ -253,15 +253,15 @@ export default function CarsAdminContent() {
                         {/* Row 2 */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Model *</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Model *</label>
                                 <input className={inputCls} placeholder="e.g. 2024 4x4" value={formData.model} onChange={set('model')} required />
                             </div>
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Year</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Year</label>
                                 <input type="number" className={inputCls} placeholder="2024" value={formData.year} onChange={set('year')} min={1990} max={2030} />
                             </div>
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Price Per Day (₹) *</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Price Per Day (₹) *</label>
                                 <input type="number" className={inputCls} placeholder="2500" value={formData.pricePerDay || ''} onChange={set('pricePerDay')} required min={0} />
                             </div>
                         </div>
@@ -269,41 +269,41 @@ export default function CarsAdminContent() {
                         {/* Row 3 */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Car Type *</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Car Type *</label>
                                 <Select value={formData.type} onValueChange={v => setFormData(f => ({ ...f, type: v }))}>
                                     <SelectTrigger className={inputCls + ' h-9'}>
                                         <SelectValue placeholder="Type" />
                                     </SelectTrigger>
-                                    <SelectContent className="bg-slate-800 border-slate-600">
+                                    <SelectContent className="bg-surface-2 border-border">
                                         {['sedan', 'suv', 'hatchback', 'sports', 'luxury', 'budget'].map(t => (
-                                            <SelectItem key={t} value={t} className="text-white capitalize focus:bg-slate-700">{t.charAt(0).toUpperCase() + t.slice(1)}</SelectItem>
+                                            <SelectItem key={t} value={t} className="text-foreground capitalize focus:bg-surface-2">{t.charAt(0).toUpperCase() + t.slice(1)}</SelectItem>
                                         ))}
                                     </SelectContent>
                                 </Select>
                             </div>
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Transmission</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Transmission</label>
                                 <Select value={formData.transmission} onValueChange={v => setFormData(f => ({ ...f, transmission: v }))}>
                                     <SelectTrigger className={inputCls + ' h-9'}>
                                         <SelectValue />
                                     </SelectTrigger>
-                                    <SelectContent className="bg-slate-800 border-slate-600">
-                                        <SelectItem value="automatic" className="text-white focus:bg-slate-700">Automatic</SelectItem>
-                                        <SelectItem value="manual" className="text-white focus:bg-slate-700">Manual</SelectItem>
+                                    <SelectContent className="bg-surface-2 border-border">
+                                        <SelectItem value="automatic" className="text-foreground focus:bg-surface-2">Automatic</SelectItem>
+                                        <SelectItem value="manual" className="text-foreground focus:bg-surface-2">Manual</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Fuel Type</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Fuel Type</label>
                                 <Select value={formData.fuelType} onValueChange={v => setFormData(f => ({ ...f, fuelType: v }))}>
                                     <SelectTrigger className={inputCls + ' h-9'}>
                                         <SelectValue />
                                     </SelectTrigger>
-                                    <SelectContent className="bg-slate-800 border-slate-600">
-                                        <SelectItem value="petrol" className="text-white focus:bg-slate-700">Petrol</SelectItem>
-                                        <SelectItem value="diesel" className="text-white focus:bg-slate-700">Diesel</SelectItem>
-                                        <SelectItem value="electric" className="text-white focus:bg-slate-700">Electric</SelectItem>
-                                        <SelectItem value="hybrid" className="text-white focus:bg-slate-700">Hybrid</SelectItem>
+                                    <SelectContent className="bg-surface-2 border-border">
+                                        <SelectItem value="petrol" className="text-foreground focus:bg-surface-2">Petrol</SelectItem>
+                                        <SelectItem value="diesel" className="text-foreground focus:bg-surface-2">Diesel</SelectItem>
+                                        <SelectItem value="electric" className="text-foreground focus:bg-surface-2">Electric</SelectItem>
+                                        <SelectItem value="hybrid" className="text-foreground focus:bg-surface-2">Hybrid</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -312,23 +312,23 @@ export default function CarsAdminContent() {
                         {/* Row 4 */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Seats</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Seats</label>
                                 <input type="number" className={inputCls} placeholder="5" value={formData.seats} onChange={set('seats')} min={1} max={20} />
                             </div>
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Horsepower (optional)</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Horsepower (optional)</label>
                                 <input type="number" className={inputCls} placeholder="150" value={formData.horsepower} onChange={set('horsepower')} />
                             </div>
                             <div>
-                                <label className="block text-xs text-slate-400 mb-1">Color (optional)</label>
+                                <label className="block text-xs text-muted-foreground mb-1">Color (optional)</label>
                                 <input className={inputCls} placeholder="e.g. Pearl White" value={formData.color} onChange={set('color')} />
                             </div>
                         </div>
 
                         {/* Image Upload */}
                         <div className="space-y-2">
-                            <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Car Image</p>
-                            <label className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl border-2 border-dashed cursor-pointer transition-all select-none ${uploadingImage ? 'opacity-60 cursor-not-allowed border-slate-600' : 'border-slate-600 hover:border-blue-500/60 hover:bg-blue-500/5'} bg-slate-800/60`}>
+                            <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Car Image</p>
+                            <label className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl border-2 border-dashed cursor-pointer transition-all select-none ${uploadingImage ? 'opacity-60 cursor-not-allowed border-border' : 'border-border hover:border-primary/60 hover:bg-primary/5'} bg-surface-2/60`}>
                                 <input
                                     ref={fileInputRef}
                                     type="file"
@@ -338,21 +338,21 @@ export default function CarsAdminContent() {
                                     onChange={handleImageUpload}
                                 />
                                 {uploadingImage
-                                    ? <Loader2 className="h-5 w-5 text-blue-400 animate-spin shrink-0" />
-                                    : <Upload className="h-5 w-5 text-blue-400 shrink-0" />
+                                    ? <Loader2 className="h-5 w-5 text-primary animate-spin shrink-0" />
+                                    : <Upload className="h-5 w-5 text-primary shrink-0" />
                                 }
                                 <div>
-                                    <p className="text-sm font-semibold text-slate-200">
+                                    <p className="text-sm font-semibold text-foreground/80">
                                         {uploadingImage ? 'Uploading image…' : 'Choose car image'}
                                     </p>
-                                    <p className="text-xs text-slate-500">PNG, JPG, WEBP — max 5 MB</p>
+                                    <p className="text-xs text-muted-foreground">PNG, JPG, WEBP — max 5 MB</p>
                                 </div>
                             </label>
                             {formData.image && (
-                                <div className="relative rounded-xl overflow-hidden border border-slate-600">
+                                <div className="relative rounded-xl overflow-hidden border border-border">
                                     <img src={formData.image} alt="Car preview" className="w-full h-44 object-cover" onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
                                     <button type="button" onClick={() => setFormData(f => ({ ...f, image: '' }))} className="absolute top-2 right-2 h-7 w-7 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition-colors">
-                                        <X className="h-3.5 w-3.5 text-white" />
+                                        <X className="h-3.5 w-3.5 text-foreground" />
                                     </button>
                                 </div>
                             )}
@@ -360,7 +360,7 @@ export default function CarsAdminContent() {
 
                         {/* Description */}
                         <div>
-                            <label className="block text-xs text-slate-400 mb-1">Description (optional)</label>
+                            <label className="block text-xs text-muted-foreground mb-1">Description (optional)</label>
                             <textarea
                                 rows={2}
                                 placeholder="Short description of the car..."
@@ -372,7 +372,7 @@ export default function CarsAdminContent() {
 
                         {/* Features */}
                         <div>
-                            <label className="block text-xs text-slate-400 mb-1">Features (comma separated, optional)</label>
+                            <label className="block text-xs text-muted-foreground mb-1">Features (comma separated, optional)</label>
                             <input className={inputCls} placeholder="AC, Bluetooth, Sunroof, GPS" value={formData.features} onChange={set('features')} />
                         </div>
 
@@ -381,7 +381,7 @@ export default function CarsAdminContent() {
                             <button
                                 type="submit"
                                 disabled={saving}
-                                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold text-sm disabled:opacity-60 transition-all shadow-lg shadow-blue-600/20"
+                                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm disabled:opacity-60 transition-all shadow-lg "
                             >
                                 {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
                                 {saving ? 'Saving...' : editingId ? 'Update Car' : 'Save Car'}
@@ -389,7 +389,7 @@ export default function CarsAdminContent() {
                             <button
                                 type="button"
                                 onClick={closeForm}
-                                className="px-4 py-2.5 rounded-lg border border-slate-600 text-slate-400 hover:bg-slate-700 hover:text-white text-sm transition-colors"
+                                className="px-4 py-2.5 rounded-lg border border-border text-muted-foreground hover:bg-surface-2 hover:text-white text-sm transition-colors"
                             >
                                 Cancel
                             </button>
@@ -402,56 +402,56 @@ export default function CarsAdminContent() {
             {isLoading ? (
                 <div className="text-center py-20">
                     <div className="inline-block mb-4">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
                     </div>
-                    <p className="text-slate-400 font-medium">Loading cars...</p>
+                    <p className="text-muted-foreground font-medium">Loading cars...</p>
                 </div>
             ) : cars.length === 0 && !showForm ? (
-                <div className="bg-slate-900/50 border border-slate-700/50 rounded-lg p-12 text-center backdrop-blur-sm">
-                    <div className="inline-block mb-4 p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                        <Car className="h-8 w-8 text-blue-500" />
+                <div className="bg-surface/50 border border-border rounded-lg p-12 text-center backdrop-blur-sm">
+                    <div className="inline-block mb-4 p-3 bg-primary/10 rounded-lg border border-primary/20">
+                        <Car className="h-8 w-8 text-primary" />
                     </div>
-                    <p className="text-slate-400 mb-6 font-medium">No cars added yet</p>
+                    <p className="text-muted-foreground mb-6 font-medium">No cars added yet</p>
                     <button
                         onClick={openAddForm}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-lg transition-all duration-200 shadow-lg shadow-blue-600/20 font-medium"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg transition-all duration-200 shadow-lg  font-medium"
                     >
                         <Plus className="h-5 w-5" />
                         Add Your First Car
                     </button>
                 </div>
             ) : cars.length > 0 ? (
-                <div className="bg-slate-900/50 border border-slate-700/50 rounded-lg overflow-hidden backdrop-blur-sm shadow-lg">
+                <div className="bg-surface/50 border border-border rounded-lg overflow-hidden backdrop-blur-sm shadow-lg">
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm">
-                            <thead className="bg-gradient-to-r from-slate-800 to-slate-700/50 border-b border-slate-700/50">
+                            <thead className="bg-gradient-to-r from-surface to-surface/80 border-b border-border">
                                 <tr>
-                                    <th className="text-left px-6 py-4 font-semibold text-slate-200">Car</th>
-                                    <th className="text-left px-6 py-4 font-semibold text-slate-200">Brand</th>
-                                    <th className="text-left px-6 py-4 font-semibold text-slate-200">Type</th>
-                                    <th className="text-left px-6 py-4 font-semibold text-slate-200">Price/Day</th>
-                                    <th className="text-left px-6 py-4 font-semibold text-slate-200">Status</th>
-                                    <th className="text-right px-6 py-4 font-semibold text-slate-200">Actions</th>
+                                    <th className="text-left px-6 py-4 font-semibold text-foreground/80">Car</th>
+                                    <th className="text-left px-6 py-4 font-semibold text-foreground/80">Brand</th>
+                                    <th className="text-left px-6 py-4 font-semibold text-foreground/80">Type</th>
+                                    <th className="text-left px-6 py-4 font-semibold text-foreground/80">Price/Day</th>
+                                    <th className="text-left px-6 py-4 font-semibold text-foreground/80">Status</th>
+                                    <th className="text-right px-6 py-4 font-semibold text-foreground/80">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-700/50">
+                            <tbody className="divide-y divide-border">
                                 {cars.map((car: any) => (
-                                    <tr key={car._id || car.id} className="hover:bg-slate-800/30 transition-colors">
+                                    <tr key={car._id || car.id} className="hover:bg-surface-2/30 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
                                                 {car.image ? (
-                                                    <img src={car.image} alt={car.name} className="h-10 w-14 object-cover rounded-md border border-slate-600" onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                                                    <img src={car.image} alt={car.name} className="h-10 w-14 object-cover rounded-md border border-border" onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
                                                 ) : (
-                                                    <div className="h-10 w-14 rounded-md bg-slate-700 border border-slate-600 flex items-center justify-center">
-                                                        <Car className="h-4 w-4 text-slate-400" />
+                                                    <div className="h-10 w-14 rounded-md bg-surface-2 border border-border flex items-center justify-center">
+                                                        <Car className="h-4 w-4 text-muted-foreground" />
                                                     </div>
                                                 )}
-                                                <span className="text-white font-medium">{car.name || car.title || 'N/A'}</span>
+                                                <span className="text-foreground font-medium">{car.name || car.title || 'N/A'}</span>
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 text-slate-300">{car.brand || 'N/A'}</td>
-                                        <td className="px-6 py-4 text-slate-300 capitalize">{car.type || 'N/A'}</td>
-                                        <td className="px-6 py-4 text-white font-medium">₹{(car.pricePerDay || car.price_per_day || 0).toLocaleString('en-IN')}</td>
+                                        <td className="px-6 py-4 text-foreground/70">{car.brand || 'N/A'}</td>
+                                        <td className="px-6 py-4 text-foreground/70 capitalize">{car.type || 'N/A'}</td>
+                                        <td className="px-6 py-4 text-foreground font-medium">₹{(car.pricePerDay || car.price_per_day || 0).toLocaleString('en-IN')}</td>
                                         <td className="px-6 py-4">
                                             <span className={`px-3 py-1 rounded-full text-xs font-medium ${car.availability || car.available
                                                 ? 'bg-green-900/30 text-green-400 border border-green-700/50'
@@ -464,14 +464,14 @@ export default function CarsAdminContent() {
                                             <div className="flex justify-end gap-2">
                                                 <button
                                                     onClick={() => handleToggleStatus(car._id || car.id, car.availability || car.available)}
-                                                    className="p-2 hover:bg-slate-700/50 rounded-lg transition-colors text-slate-300 hover:text-white"
+                                                    className="p-2 hover:bg-surface-2/50 rounded-lg transition-colors text-foreground/70 hover:text-foreground"
                                                     title={car.availability ? 'Hide car' : 'Show car'}
                                                 >
                                                     {car.availability || car.available ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                                                 </button>
                                                 <button
                                                     onClick={() => openEditForm(car)}
-                                                    className="p-2 hover:bg-blue-900/20 rounded-lg transition-colors text-blue-400 hover:text-blue-300"
+                                                    className="p-2 hover:bg-primary/10 rounded-lg transition-colors text-primary hover:text-primary"
                                                     title="Edit"
                                                 >
                                                     <Edit2 className="h-4 w-4" />

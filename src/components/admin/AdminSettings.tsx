@@ -166,7 +166,7 @@ export function AdminSettings({ admin, onUpdate }: AdminSettings) {
                             <Input
                                 value={admin?.role || 'Admin'}
                                 disabled
-                                className="bg-slate-100"
+                                className="bg-surface"
                             />
                         </div>
 
@@ -229,22 +229,22 @@ export function AdminSettings({ admin, onUpdate }: AdminSettings) {
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                        <span className="text-slate-600">Admin Email:</span>
+                        <span className="text-muted-foreground">Admin Email:</span>
                         <span className="font-medium">{admin?.email}</span>
                     </div>
                     <div className="flex justify-between">
-                        <span className="text-slate-600">Admin Role:</span>
+                        <span className="text-muted-foreground">Admin Role:</span>
                         <span className="font-medium capitalize">{admin?.role}</span>
                     </div>
                     <div className="flex justify-between">
-                        <span className="text-slate-600">Account Status:</span>
+                        <span className="text-muted-foreground">Account Status:</span>
                         <span className={`font-medium ${admin?.isActive ? 'text-green-600' : 'text-red-600'}`}>
                             {admin?.isActive ? 'Active' : 'Inactive'}
                         </span>
                     </div>
                     {admin?.lastLogin && (
                         <div className="flex justify-between">
-                            <span className="text-slate-600">Last Login:</span>
+                            <span className="text-muted-foreground">Last Login:</span>
                             <span className="font-medium">{new Date(admin.lastLogin).toLocaleString()}</span>
                         </div>
                     )}

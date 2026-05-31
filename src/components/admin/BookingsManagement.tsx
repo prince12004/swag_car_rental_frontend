@@ -119,56 +119,56 @@ export function BookingsManagement() {
             {/* Stats Cards */}
             {stats && (
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
-                            <div className="text-3xl font-bold text-white">{stats.total}</div>
-                            <p className="text-xs text-slate-400 mt-1">Total Bookings</p>
+                            <div className="text-3xl font-bold text-foreground">{stats.total}</div>
+                            <p className="text-xs text-muted-foreground mt-1">Total Bookings</p>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
                             <div className="text-3xl font-bold text-yellow-400">{stats.pending}</div>
-                            <p className="text-xs text-slate-400 mt-1">Pending</p>
+                            <p className="text-xs text-muted-foreground mt-1">Pending</p>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
-                            <div className="text-3xl font-bold text-blue-400">{stats.confirmed}</div>
-                            <p className="text-xs text-slate-400 mt-1">Confirmed</p>
+                            <div className="text-3xl font-bold text-primary">{stats.confirmed}</div>
+                            <p className="text-xs text-muted-foreground mt-1">Confirmed</p>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
                             <div className="text-3xl font-bold text-green-400">{stats.completed}</div>
-                            <p className="text-xs text-slate-400 mt-1">Completed</p>
+                            <p className="text-xs text-muted-foreground mt-1">Completed</p>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                    <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                         <CardContent className="pt-6">
                             <div className="text-3xl font-bold text-emerald-400">₹{stats.revenue?.toLocaleString()}</div>
-                            <p className="text-xs text-slate-400 mt-1">Revenue</p>
+                            <p className="text-xs text-muted-foreground mt-1">Revenue</p>
                         </CardContent>
                     </Card>
                 </div>
             )}
 
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+            <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                 <CardHeader className="pb-4">
                     <div className="flex items-center justify-between">
                         <div>
-                            <CardTitle className="text-2xl text-white">Bookings</CardTitle>
-                            <CardDescription className="text-slate-300 mt-1">Manage car rental bookings</CardDescription>
+                            <CardTitle className="text-2xl text-foreground">Bookings</CardTitle>
+                            <CardDescription className="text-foreground/70 mt-1">Manage car rental bookings</CardDescription>
                         </div>
                         <Select value={filter} onValueChange={handleFilterChange}>
-                            <SelectTrigger className="w-[180px] bg-slate-700 border-white/10 text-white">
+                            <SelectTrigger className="w-[180px] bg-surface-2 border-border text-foreground">
                                 <SelectValue placeholder="Filter by status" />
                             </SelectTrigger>
-                            <SelectContent className="bg-slate-700 border-white/10">
-                                <SelectItem value="all" className="text-slate-900">All Bookings</SelectItem>
-                                <SelectItem value="pending" className="text-slate-900">Pending</SelectItem>
-                                <SelectItem value="confirmed" className="text-slate-900">Confirmed</SelectItem>
-                                <SelectItem value="completed" className="text-slate-900">Completed</SelectItem>
-                                <SelectItem value="cancelled" className="text-slate-900">Cancelled</SelectItem>
+                            <SelectContent className="bg-surface-2 border-border">
+                                <SelectItem value="all" className="text-foreground">All Bookings</SelectItem>
+                                <SelectItem value="pending" className="text-foreground">Pending</SelectItem>
+                                <SelectItem value="confirmed" className="text-foreground">Confirmed</SelectItem>
+                                <SelectItem value="completed" className="text-foreground">Completed</SelectItem>
+                                <SelectItem value="cancelled" className="text-foreground">Cancelled</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
@@ -182,27 +182,27 @@ export function BookingsManagement() {
                 </Alert>
             )}
 
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+            <Card className="bg-white/5 backdrop-blur-md border-border shadow-lg">
                 <CardContent className="pt-6">
                     {loading ? (
                         <div className="text-center py-16">
                             <div className="inline-flex items-center gap-3">
-                                <div className="h-6 w-6 rounded-full border-2 border-blue-500 border-t-cyan-500 animate-spin"></div>
-                                <p className="text-slate-300">Loading bookings...</p>
+                                <div className="h-6 w-6 rounded-full border-2 border-primary border-t-cyan-500 animate-spin"></div>
+                                <p className="text-foreground/70">Loading bookings...</p>
                             </div>
                         </div>
                     ) : bookings && Array.isArray(bookings) && bookings.length > 0 ? (
-                        <div className="overflow-x-auto rounded-lg border border-white/10">
+                        <div className="overflow-x-auto rounded-lg border border-border">
                             <Table>
-                                <TableHeader className="bg-white/5 border-b border-white/10">
+                                <TableHeader className="bg-white/5 border-b border-border">
                                     <TableRow className="hover:bg-transparent">
-                                        <TableHead className="text-slate-300 font-semibold">Customer</TableHead>
-                                        <TableHead className="text-slate-300 font-semibold">Car</TableHead>
-                                        <TableHead className="text-slate-300 font-semibold">Pickup</TableHead>
-                                        <TableHead className="text-slate-300 font-semibold">Drop</TableHead>
-                                        <TableHead className="text-slate-300 font-semibold">Amount</TableHead>
-                                        <TableHead className="text-slate-300 font-semibold">Status</TableHead>
-                                        <TableHead className="text-slate-300 font-semibold">Actions</TableHead>
+                                        <TableHead className="text-foreground/70 font-semibold">Customer</TableHead>
+                                        <TableHead className="text-foreground/70 font-semibold">Car</TableHead>
+                                        <TableHead className="text-foreground/70 font-semibold">Pickup</TableHead>
+                                        <TableHead className="text-foreground/70 font-semibold">Drop</TableHead>
+                                        <TableHead className="text-foreground/70 font-semibold">Amount</TableHead>
+                                        <TableHead className="text-foreground/70 font-semibold">Status</TableHead>
+                                        <TableHead className="text-foreground/70 font-semibold">Actions</TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -210,18 +210,18 @@ export function BookingsManagement() {
                                         <TableRow key={booking._id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
                                             <TableCell>
                                                 <div>
-                                                    <p className="font-medium text-white">{booking.customerName}</p>
-                                                    <p className="text-xs text-slate-400">{booking.customerPhone}</p>
+                                                    <p className="font-medium text-foreground">{booking.customerName}</p>
+                                                    <p className="text-xs text-muted-foreground">{booking.customerPhone}</p>
                                                 </div>
                                             </TableCell>
-                                            <TableCell className="text-slate-300">{booking.carName}</TableCell>
-                                            <TableCell className="text-slate-300">{new Date(booking.pickupDate).toLocaleDateString()}</TableCell>
-                                            <TableCell className="text-slate-300">{new Date(booking.dropDate).toLocaleDateString()}</TableCell>
-                                            <TableCell className="font-medium text-white">₹{booking.totalPrice?.toLocaleString()}</TableCell>
+                                            <TableCell className="text-foreground/70">{booking.carName}</TableCell>
+                                            <TableCell className="text-foreground/70">{new Date(booking.pickupDate).toLocaleDateString()}</TableCell>
+                                            <TableCell className="text-foreground/70">{new Date(booking.dropDate).toLocaleDateString()}</TableCell>
+                                            <TableCell className="font-medium text-foreground">₹{booking.totalPrice?.toLocaleString()}</TableCell>
                                             <TableCell>
                                                 <span className={`px-3 py-1 rounded-full text-xs font-medium inline-block ${booking.status === 'confirmed' ? 'bg-green-500/20 text-green-300 border border-green-500/30' :
                                                     booking.status === 'pending' ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30' :
-                                                        booking.status === 'completed' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' :
+                                                        booking.status === 'completed' ? 'bg-primary/20 text-primary border border-primary/30' :
                                                             'bg-red-500/20 text-red-300 border border-red-500/30'
                                                     }`}>
                                                     {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
@@ -237,16 +237,16 @@ export function BookingsManagement() {
                                                             Update
                                                         </Button>
                                                     </DialogTrigger>
-                                                    <DialogContent className="bg-slate-800 border-white/10">
+                                                    <DialogContent className="bg-surface-2 border-border">
                                                         <DialogHeader>
-                                                            <DialogTitle className="text-white text-lg">Update Booking Status</DialogTitle>
+                                                            <DialogTitle className="text-foreground text-lg">Update Booking Status</DialogTitle>
                                                         </DialogHeader>
                                                         <div className="space-y-3">
                                                             {['pending', 'confirmed', 'completed', 'cancelled'].map((status) => (
                                                                 <Button
                                                                     key={status}
                                                                     variant={booking.status === status ? 'default' : 'outline'}
-                                                                    className={`w-full ${booking.status === status ? 'bg-gradient-to-r from-blue-600 to-cyan-600' : 'bg-slate-700 border-white/10 text-white hover:bg-slate-600'}`}
+                                                                    className={`w-full ${booking.status === status ? 'bg-primary' : 'bg-surface-2 border-border text-foreground hover:bg-surface'}`}
                                                                     onClick={() => {
                                                                         updateBookingStatus(booking._id, status);
                                                                     }}
@@ -265,11 +265,11 @@ export function BookingsManagement() {
                         </div>
                     ) : (
                         <div className="text-center py-16">
-                            <AlertCircle className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-                            <p className="text-slate-300 mb-4 text-lg">No bookings found</p>
+                            <AlertCircle className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                            <p className="text-foreground/70 mb-4 text-lg">No bookings found</p>
                             <Button
                                 onClick={() => fetchBookings()}
-                                className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0"
+                                className="btn-neon text-foreground border-0"
                             >
                                 Refresh
                             </Button>

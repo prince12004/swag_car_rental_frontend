@@ -1,17 +1,19 @@
 import { useState } from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import { Loader2, AlertCircle, Lock, Mail } from 'lucide-react';
 import { toast } from 'sonner';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://swag-car-rental-backend.onrender.com';
 
 export default function AdminLoginPage() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('admin@swagcarrental.com');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleLogin = async (e?: React.FormEvent | React.MouseEvent) => {
+        e?.preventDefault();
         setLoading(true);
         setError('');
 
@@ -30,11 +32,9 @@ export default function AdminLoginPage() {
 
             localStorage.setItem('adminToken', data.token);
             localStorage.setItem('adminEmail', data.admin.email);
-
-            // auth-change triggers AuthProvider to update isAdmin,
-            // then AdminLoginComponent's useEffect navigates to /admin-panel
             window.dispatchEvent(new Event('auth-change'));
             toast.success('Login successful!');
+            navigate({ to: '/admin-panel' });
         } catch (err: any) {
             setError(err.message);
             toast.error(err.message);
@@ -60,7 +60,7 @@ export default function AdminLoginPage() {
 
                 {/* Card */}
                 <div className="glass-strong rounded-2xl p-8 mb-6">
-                    <form onSubmit={handleLogin} className="space-y-5">
+                    <form onSubmit={handleLogin} action="javascript:void(0)" className="space-y-5">
                         {error && (
                             <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/30 rounded-lg">
                                 <AlertCircle className="h-5 w-5 text-destructive shrink-0" />
@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
                                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                 <input
                                     type="email"
-                                    placeholder="admin@swagwheels.com"
+                                    placeholder="admin@swagcarrental.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="panel-input pl-10"
@@ -100,12 +100,14 @@ export default function AdminLoginPage() {
                                     onChange={(e) => setPassword(e.target.value)}
                                     className="panel-input pl-10"
                                     required
+                                    onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
                                 />
                             </div>
                         </div>
 
                         <button
-                            type="submit"
+                            type="button"
+                            onClick={handleLogin}
                             disabled={loading}
                             className="btn-neon w-full disabled:opacity-50 disabled:cursor-not-allowed"
                         >
