@@ -76,8 +76,12 @@ export function SiteFooter() {
               <span>info@swagrental.com</span>
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="h-4 w-4 mt-0.5 text-primary" />
-              <span>1 Neon Drive, Los Angeles, CA 90012</span>
+              <MapPin className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
+              <span>Krishna Apra D Mall, Plot No. 1, Shakti Khand 2, Indirapuram – 201014</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <MapPin className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
+              <span>Majlis Park Metro, Manav Kunj, Mukundpur, near Bada Shiv Mandir, Delhi – 110042</span>
             </li>
           </ul>
         </div>

@@ -21,7 +21,7 @@ export const Route = createFileRoute("/privacy")({
           { h: "Cookies", p: "We use essential cookies to operate the site and analytics cookies (anonymized) to improve the experience. Marketing cookies are only set with your consent." },
           { h: "Your Rights", p: "You can request access, correction, or deletion of your data at any time by emailing privacy@swagrental.com. We respond within 30 days." },
           { h: "Security", p: "Data is encrypted in transit and at rest. We follow industry best practices and undergo regular security audits." },
-          { h: "Contact", p: "For privacy questions, email privacy@swagrental.com or write to 1 Neon Drive, Los Angeles, CA 90012." },
+          { h: "Contact", p: "For privacy questions, email privacy@swagrental.com or write to Krishna Apra D Mall, Plot No. 1, Shakti Khand 2, Indirapuram – 201014 or Majlis Park Metro, Manav Kunj, Mukundpur, near Bada Shiv Mandir, Delhi – 110042." },
         ]}
       />
     </PublicLayout>

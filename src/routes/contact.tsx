@@ -82,7 +82,8 @@ function ContactPage() {
             <div className="space-y-4">
               <ContactCard Icon={Phone} title="WhatsApp us" value="+91 9289084361" href="https://wa.me/919289084361?text=Hi%20SWAG%20CAR%20RENTAL%2C%20I'd%20like%20to%20book%20a%20car" />
               <ContactCard Icon={Mail} title="Email" value="info@swagrental.com" href="mailto:info@swagrental.com" />
-              <ContactCard Icon={MapPin} title="Visit" value="1 Neon Drive, Los Angeles, CA 90012" />
+              <ContactCard Icon={MapPin} title="Visit — Indirapuram" value="Krishna Apra D Mall, Plot No. 1, Shakti Khand 2, Indirapuram – 201014" />
+              <ContactCard Icon={MapPin} title="Visit — Delhi" value="Majlis Park Metro, Manav Kunj, Mukundpur, near Bada Shiv Mandir, Delhi – 110042" />
 
               <div className="glass mainsss rounded-2xl p-6">
                 <h3 className="label-display text-primary mb-3">Follow</h3>
@@ -125,7 +126,7 @@ function ContactPage() {
           <div className="mt-12 glass rounded-3xl overflow-hidden aspect-[16/7]">
             <iframe
               title="SWAG Car Rental location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.4546260443!2d-118.69192207421877!3d34.02016130653294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0!2d77.3695!3d28.6403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55b0b48b7b5%3A0x1b1b1b1b1b1b1b1b!2sShakti%20Khand%202%2C%20Indirapuram%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201014!5e0!3m2!1sen!2sin!4v1700000000000"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-full grayscale-[0.4] opacity-90"
